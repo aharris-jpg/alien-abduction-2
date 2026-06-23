@@ -729,6 +729,9 @@
       if(window.history&&window.history.replaceState){
         window.history.replaceState(null,"",cur.href);
       }
+      if(window.parent&&window.parent!==window){
+        window.parent.postMessage({type:"alien-hash",hash:cur.href},"*");
+      }
     }
   }
   window.addEventListener("scroll",upd,{passive:true});
