@@ -89,42 +89,35 @@
 
 /* FINDINGS CARDS */
 .findings-grid{
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:0 0 1.6em;
+  display:flex;flex-direction:column;gap:10px;margin:0 0 1.8em;
 }
 .finding-card{
   background:var(--offwhite);border:1px solid var(--border);border-radius:10px;
-  padding:16px 18px;position:relative;
+  padding:16px 20px;display:flex;align-items:center;gap:20px;
 }
-.finding-card .fc-flag{
-  font-size:1.4em;margin-bottom:8px;display:block;
+.finding-card .fc-left{
+  display:flex;flex-direction:column;align-items:center;
+  min-width:90px;flex-shrink:0;text-align:center;
 }
+.finding-card .fc-flag{font-size:1.6em;line-height:1;margin-bottom:4px;}
 .finding-card .fc-country{
-  font-family:system-ui,sans-serif;font-size:.65em;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
-  margin-bottom:10px;display:block;
+  font-family:system-ui,sans-serif;font-size:.6em;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
 }
-.finding-card .fc-headline{
-  font-family:system-ui,sans-serif;font-size:.78em;font-weight:600;
-  color:var(--navy);margin-bottom:6px;display:block;
+.finding-card .fc-divider{
+  width:1px;background:var(--border);align-self:stretch;flex-shrink:0;
 }
-.finding-card .fc-stat{
-  font-family:system-ui,sans-serif;font-size:1.9em;font-weight:700;
-  color:var(--deep);line-height:1;margin-bottom:8px;display:block;
-}
-.finding-card .fc-stat small{
-  font-size:.42em;font-weight:500;color:var(--muted);
-  display:block;margin-top:2px;line-height:1.3;
+.finding-card .fc-right{flex:1;min-width:0;}
+
+.finding-card .fc-label{
+  font-family:system-ui,sans-serif;font-size:.78em;
+  color:var(--navy);line-height:1.4;margin-bottom:8px;
 }
 .finding-card .fc-sub{
-  font-family:system-ui,sans-serif;font-size:.7em;color:var(--muted);
-  margin-top:10px;padding-top:10px;border-top:1px solid var(--border);
-  line-height:1.45;display:block;
+  font-family:system-ui,sans-serif;font-size:.69em;
+  color:var(--muted);line-height:1.45;
 }
 .finding-card .fc-sub strong{color:var(--navy)}
-.finding-card.fc-lead{border-left:4px solid var(--signal)}
-@media(max-width:600px){
-  .findings-grid{grid-template-columns:1fr}
-}
 
 /* COUNTRY DIVIDER */
 .country-divider{display:flex;align-items:center;gap:14px;margin:2.6em 0 1.2em}
@@ -238,26 +231,29 @@
 <h2 id="findings">The Numbers That Matter</h2>
 
 <div class="findings-grid">
-  <div class="finding-card fc-lead">
-    <span class="fc-flag">🇨🇦</span>
-    <span class="fc-country">Canada</span>
-    <span class="fc-stat">297/M</span>
-    <span class="fc-label">Sightings per million in Sherbrooke, QC , the highest rate in the entire dataset</span>
-    <span class="fc-sub"><strong>1-in-3,365</strong> chance over 5 years &nbsp;&middot;&nbsp; Toronto has 275 raw sightings but ranks only 9th</span>
+  <div class="finding-card">
+    <div class="fc-left"><span class="fc-flag">🇨🇦</span><span class="fc-country">Canada</span></div>
+    <div class="fc-divider"></div>
+    <div class="fc-right">
+      <div class="fc-label">Sherbrooke, QC leads the entire study. The highest sighting rate of any city across all three countries.</div>
+      <div class="fc-sub"><strong>1-in-3,365</strong> chance over 5 years &middot; Toronto has 275 raw sightings but ranks 9th</div>
+    </div>
   </div>
-  <div class="finding-card fc-lead">
-    <span class="fc-flag">🇺🇸</span>
-    <span class="fc-country">United States</span>
-    <span class="fc-stat">10.89/M</span>
-    <span class="fc-label">Abduction-flagged reports per million in Vermont. The US leader.</span>
-    <span class="fc-sub">Oregon is more reliable: <strong>28 confirmed reports</strong> &nbsp;&middot;&nbsp; California has 61 reports, ranks 32nd</span>
+  <div class="finding-card">
+    <div class="fc-left"><span class="fc-flag">🇺🇸</span><span class="fc-country">United States</span></div>
+    <div class="fc-divider"></div>
+    <div class="fc-right">
+      <div class="fc-label">Vermont leads the US for abduction-flagged reports per million residents.</div>
+      <div class="fc-sub">Oregon is the more reliable result: <strong>28 confirmed reports</strong> &middot; California has 61 reports, ranks 32nd</div>
+    </div>
   </div>
-  <div class="finding-card fc-lead">
-    <span class="fc-flag">🇬🇧</span>
-    <span class="fc-country">United Kingdom</span>
-    <span class="fc-stat">153/M</span>
-    <span class="fc-label">Sightings per million in Cambridge. 14 times higher than London.</span>
-    <span class="fc-sub">Top 4 cities within <strong>12 per million</strong> of each other &nbsp;&middot;&nbsp; London ranks last of 25</span>
+  <div class="finding-card">
+    <div class="fc-left"><span class="fc-flag">🇬🇧</span><span class="fc-country">United Kingdom</span></div>
+    <div class="fc-divider"></div>
+    <div class="fc-right">
+      <div class="fc-label">Cambridge leads Britain at 153 sightings per million. Fourteen times higher than London.</div>
+      <div class="fc-sub">Top 4 UK cities within <strong>12 per million</strong> of each other &middot; London ranks last of 25</div>
+    </div>
   </div>
 </div>
 
@@ -274,8 +270,8 @@
 
 <div class="stat-callout">
   <div class="sc-body">
-    <strong>A small Quebec city beats every state in America for abduction odds</strong>
-    Sherbrooke, population 175,000, files at 297 sightings per million. The US leader, Vermont, files at 10.89.
+    <strong>Sherbrooke, QC: 297 sightings per million.</strong>
+    Vermont leads the entire US at 10.89. A Canadian city of 175,000 beats every American state.
     <em>Canada Sports Betting Alien Abduction Odds Index 2026</em>
   </div>
 </div>
@@ -365,8 +361,8 @@
 
 <div class="stat-callout">
   <div class="sc-body">
-    <strong>Only 1 in 30 US UFO sightings gets flagged as a possible abduction</strong>
-    609 abduction-flagged reports from 18,561 total sightings filed between 2020 and 2024.
+    <strong>Only 609 of 18,561 US sightings were abduction-flagged.</strong>
+    That is 1 in every 30 UFO reports filed between 2020 and 2024.
     <em>Canada Sports Betting Alien Abduction Odds Index 2026</em>
   </div>
 </div>
@@ -458,8 +454,8 @@
 
 <div class="stat-callout">
   <div class="sc-body">
-    <strong>You are 14 times more likely to be abducted in Cambridge than in London</strong>
-    Cambridge: 153 sightings per million. London: 11. Same country, same five years, same source.
+    <strong>Cambridge: 153 sightings per million. London: 11.</strong>
+    Same country, same five years. You are 14 times more likely to file a report in Cambridge.
     <em>Canada Sports Betting Alien Abduction Odds Index 2026</em>
   </div>
 </div>
