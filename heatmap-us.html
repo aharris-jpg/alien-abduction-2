@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>US States Abduction-Flagged UFO Rates Heatmap 2020-2024</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#fff;color:#1C2B3A;display:flex;flex-direction:column;min-height:100vh}
+.hdr{background:#fff;border-bottom:2px solid #e2dfd8;padding:12px 16px 10px}
+.hdr-top{display:flex;align-items:baseline;justify-content:space-between}
+.hdr h1{font-size:.92em;font-weight:700;color:#1C2B3A;line-height:1.25}
+.brand{font-size:.68em;font-weight:700;color:#D0021B;white-space:nowrap;padding-left:10px}
+.hdr p{font-size:.69em;color:#8a9199;margin-top:2px}
+#mw{flex:1;padding:8px 10px 4px;display:flex;align-items:center;justify-content:center}
+svg{width:100%;height:auto;cursor:pointer}
+.sp{transition:filter .15s}
+.sp:hover{filter:brightness(.82)}
+.leg{padding:4px 16px 5px}
+.leg-labs{display:flex;justify-content:space-between;font-size:.67em;color:#8a9199;margin-bottom:3px}
+.leg-bar{height:10px;border-radius:3px}
+#tt{
+  position:fixed;background:#fff;border:1px solid #e2dfd8;border-left:3px solid #3ddc84;
+  color:#1C2B3A;font-family:system-ui,sans-serif;font-size:.77em;
+  padding:9px 13px;border-radius:6px;pointer-events:none;display:none;z-index:999;
+  line-height:1.5;max-width:200px;box-shadow:0 2px 12px rgba(0,0,0,.1);
+}
+#tt .tn{font-weight:700;color:#1a4d35;margin-bottom:3px}
+#tt .tr{display:flex;justify-content:space-between;gap:10px}
+#tt .tl{color:#8a9199}
+#tt .tv{font-weight:600;color:#1C2B3A}
+.ftr{padding:6px 14px 9px;border-top:1px solid #e2dfd8;background:#f6f5f2;display:flex;align-items:center;justify-content:space-between}
+.fn{font-size:.64em;color:#b0bec5;line-height:1.45}
+</style></head><body>
+<div class="hdr">
+  <div class="hdr-top">
+    <h1>Abduction-Flagged UFO Report Rates by US State (2020-2024)</h1>
+    <span class="brand">Canada Sports Betting</span>
+  </div>
+  <p>Reports flagged as Possible Abduction or Missing Time per 100,000 residents &middot; Hover any state for details</p>
+</div>
+<div id="mw"></div>
+<div class="leg">
+  <div class="leg-labs"><span>0 &mdash; No flagged reports</span><span>2.5</span><span>5.0</span><span>7.5</span><span>10.89 &mdash; Vermont</span></div>
+  <div class="leg-bar" id="lb"></div>
+</div>
+<div id="tt"></div>
+<div class="ftr">
+  <span class="fn">Source: National UFO Reporting Center (NUFORC) 2020-2024 &middot; Population: US Census Bureau Vintage 2025 &middot; CE = close encounter (Possible Abduction OR Missing Time flagged)</span>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script>
+const SD={
+  "01":{name:"Alabama",       rate:1.149,ce:6,  odds:870520,  total:223},
+  "02":{name:"Alaska",        rate:4.065,ce:3,  odds:246001,  total:54,  warn:true},
+  "04":{name:"Arizona",       rate:1.300,ce:10, odds:769121,  total:665},
+  "05":{name:"Arkansas",      rate:0.957,ce:3,  odds:1044501, total:234, warn:true},
+  "06":{name:"California",    rate:1.550,ce:61, odds:645014,  total:1886},
+  "08":{name:"Colorado",      rate:3.479,ce:21, odds:287458,  total:597},
+  "09":{name:"Connecticut",   rate:2.161,ce:8,  odds:462818,  total:345},
+  "10":{name:"Delaware",      rate:2.804,ce:3,  odds:356594,  total:73,  warn:true},
+  "12":{name:"Florida",       rate:1.606,ce:38, odds:622610,  total:1288},
+  "13":{name:"Georgia",       rate:0.965,ce:11, odds:1036481, total:398},
+  "15":{name:"Hawaii",        rate:2.097,ce:3,  odds:476896,  total:90,  warn:true},
+  "16":{name:"Idaho",         rate:2.429,ce:5,  odds:411719,  total:267},
+  "17":{name:"Illinois",      rate:0.785,ce:10, odds:1273525, total:466},
+  "18":{name:"Indiana",       rate:2.282,ce:16, odds:438244,  total:466},
+  "19":{name:"Iowa",          rate:3.696,ce:12, odds:270527,  total:162},
+  "20":{name:"Kansas",        rate:1.673,ce:5,  odds:597838,  total:166},
+  "21":{name:"Kentucky",      rate:1.512,ce:7,  odds:661383,  total:235},
+  "22":{name:"Louisiana",     rate:0.216,ce:1,  odds:4621500, total:135, warn:true},
+  "23":{name:"Maine",         rate:2.814,ce:4,  odds:355328,  total:181, warn:true},
+  "24":{name:"Maryland",      rate:1.432,ce:9,  odds:698376,  total:265},
+  "25":{name:"Massachusetts", rate:0.837,ce:6,  odds:1194935, total:404},
+  "26":{name:"Michigan",      rate:2.166,ce:22, odds:461628,  total:460},
+  "27":{name:"Minnesota",     rate:1.535,ce:9,  odds:651489,  total:292},
+  "28":{name:"Mississippi",   rate:2.028,ce:6,  odds:493025,  total:90},
+  "29":{name:"Missouri",      rate:1.429,ce:9,  odds:699726,  total:375},
+  "30":{name:"Montana",       rate:3.473,ce:4,  odds:287958,  total:112, warn:true},
+  "31":{name:"Nebraska",      rate:1.970,ce:4,  odds:507605,  total:85,  warn:true},
+  "32":{name:"Nevada",        rate:1.510,ce:5,  odds:662167,  total:231},
+  "33":{name:"New Hampshire", rate:4.922,ce:7,  odds:203167,  total:198},
+  "34":{name:"New Jersey",    rate:2.294,ce:22, odds:435913,  total:403},
+  "35":{name:"New Mexico",    rate:2.354,ce:5,  odds:424844,  total:243},
+  "36":{name:"New York",      rate:1.650,ce:33, odds:606165,  total:870},
+  "37":{name:"North Carolina",rate:1.763,ce:20, odds:567194,  total:496},
+  "38":{name:"North Dakota",  rate:1.242,ce:1,  odds:805329,  total:45,  warn:true},
+  "39":{name:"Ohio",          rate:2.094,ce:25, odds:477616,  total:628},
+  "40":{name:"Oklahoma",      rate:2.410,ce:10, odds:414882,  total:240},
+  "41":{name:"Oregon",        rate:6.539,ce:28, odds:152923,  total:551},
+  "42":{name:"Pennsylvania",  rate:1.453,ce:19, odds:688053,  total:845},
+  "44":{name:"Rhode Island",  rate:3.576,ce:4,  odds:279657,  total:65,  warn:true},
+  "45":{name:"South Carolina",rate:2.478,ce:14, odds:403588,  total:294},
+  "46":{name:"South Dakota",  rate:0.000,ce:0,  odds:9999999, total:60},
+  "47":{name:"Tennessee",     rate:1.084,ce:8,  odds:922358,  total:332},
+  "48":{name:"Texas",         rate:0.592,ce:19, odds:1689530, total:884},
+  "49":{name:"Utah",          rate:2.238,ce:8,  odds:446853,  total:245},
+  "50":{name:"Vermont",       rate:10.890,ce:7, odds:91829,   total:91},
+  "51":{name:"Virginia",      rate:1.454,ce:13, odds:687736,  total:354},
+  "53":{name:"Washington",    rate:4.583,ce:37, odds:218218,  total:976},
+  "54":{name:"West Virginia", rate:4.533,ce:8,  odds:220612,  total:123},
+  "55":{name:"Wisconsin",     rate:3.173,ce:19, odds:315179,  total:312},
+  "56":{name:"Wyoming",       rate:1.693,ce:1,  odds:590784,  total:61,  warn:true},
+};
+const MAX=10.890;
+
+function getColor(rate){
+  if(rate===0)return"#edf2ed";
+  const t=Math.pow(rate/MAX,0.5);
+  if(t<0.5){
+    const t2=t*2;
+    return"rgb("+Math.round(237-t2*(237-26))+","+Math.round(242-t2*(242-100))+","+Math.round(237-t2*(237-60))+")";
+  }else{
+    const t2=(t-0.5)*2;
+    return"rgb("+Math.round(26+t2*(61-26))+","+Math.round(100+t2*(220-100))+","+Math.round(60+t2*(132-60))+")";
+  }
+}
+
+const lb=document.getElementById("lb");
+const stops=[];for(let i=0;i<=20;i++){const t=i/20;stops.push(getColor(t*MAX)+" "+(t*100)+"%");}
+lb.style.background="linear-gradient(to right,"+stops.join(",")+")";
+
+const tt=document.getElementById("tt");
+fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")
+  .then(r=>r.json()).then(us=>{
+    const W=700,H=430;
+    const proj=d3.geoAlbersUsa().scale(850).translate([W/2,H/2]);
+    const path=d3.geoPath().projection(proj);
+    const states=topojson.feature(us,us.objects.states);
+    const svg=d3.select("#mw").append("svg").attr("viewBox","0 0 "+W+" "+H);
+    svg.selectAll("path").data(states.features).enter().append("path")
+      .attr("class","sp").attr("d",path)
+      .attr("fill",d=>{const f=d.id.toString().padStart(2,"0");const s=SD[f];return s?getColor(s.rate):"#d8ddd8";})
+      .attr("stroke","#fff").attr("stroke-width",2)
+      .on("mousemove",function(event,d){
+        const f=d.id.toString().padStart(2,"0");const s=SD[f];
+        if(!s){tt.style.display="none";return;}
+        const w=s.warn?" ⚠":"";
+        tt.innerHTML="<div class='tn'>"+s.name+"</div>"+
+          "<div class='tr'><span class='tl'>Abduction-flagged</span><span class='tv'>"+s.ce+w+"</span></div>"+
+          "<div class='tr'><span class='tl'>Rate per million</span><span class='tv'>"+s.rate.toFixed(2)+"</span></div>"+
+          "<div class='tr'><span class='tl'>5-yr odds</span><span class='tv'>1 in "+s.odds.toLocaleString()+"</span></div>"+
+          "<div class='tr'><span class='tl'>All sightings</span><span class='tv'>"+s.total+"</span></div>";
+        tt.style.display="block";
+        const ox=event.clientX+220>window.innerWidth?-214:14;
+        const oy=event.clientY+160>window.innerHeight?-145:10;
+        tt.style.left=(event.clientX+ox)+"px";tt.style.top=(event.clientY+oy)+"px";
+      })
+      .on("mouseleave",()=>{tt.style.display="none";});
+  });
+</script></body></html>
