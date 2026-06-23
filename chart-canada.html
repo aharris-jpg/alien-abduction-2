@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Most Likely Places to Be Abducted in Canada (2020-2024)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#fff;color:#1C2B3A;display:flex;flex-direction:column}
+.hdr{background:#fff;border-bottom:2px solid #e2dfd8;padding:12px 16px 10px}
+.hdr h1{font-size:.92em;font-weight:700;color:#1C2B3A;line-height:1.25}
+.tabs{display:flex;padding:0 16px;border-bottom:2px solid #e2dfd8;background:#fff;gap:0}
+.tab{padding:8px 12px;font-size:.74em;font-weight:600;cursor:pointer;border:none;background:none;color:#8a9199;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;white-space:nowrap}
+.tab.active{color:#1a4d35;border-bottom-color:#3ddc84}
+.tab-note-row{padding:5px 16px 6px;background:#fafaf8;border-bottom:1px solid #e2dfd8;min-height:26px}
+#tabnote{font-family:system-ui,sans-serif;font-size:.69em;color:#8a9199;line-height:1.4}
+.ca{padding:10px 14px 6px}
+.row{display:flex;align-items:center;margin-bottom:7px;gap:6px;border-radius:4px;padding:2px 3px;transition:background .12s}
+.row:hover{background:rgba(61,220,132,.07)}
+.rk{font-size:.67em;font-weight:700;color:#b0bec5;width:16px;text-align:right;flex-shrink:0}
+.lbl{font-size:.75em;font-weight:600;color:#1C2B3A;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{flex:1;height:22px;background:#f0eeeb;border-radius:3px;position:relative;min-width:0}
+.fill{height:100%;border-radius:3px;position:absolute;left:0;top:0}
+.val{position:absolute;font-size:.7em;font-weight:700;white-space:nowrap;top:50%;transform:translateY(-50%)}
+.pager{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;border-top:1px solid #e2dfd8;background:#f6f5f2}
+.pbtn{font-size:.71em;font-weight:600;color:#1a4d35;background:none;border:1px solid #3ddc84;border-radius:4px;padding:4px 10px;cursor:pointer;transition:background .15s,color .15s}
+.pbtn:hover{background:#3ddc84;color:#1a4d35}
+.pbtn:disabled{opacity:.28;cursor:default}
+.pbtn:disabled:hover{background:none;color:#1a4d35}
+.pi{font-size:.7em;color:#8a9199}
+.ftr{padding:6px 14px 8px;border-top:1px solid #e2dfd8;background:#f6f5f2;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fn{font-size:.64em;color:#b0bec5;line-height:1.45}
+.brand{font-size:.68em;font-weight:700;color:#D0021B;white-space:nowrap;flex-shrink:0}
+.wb{font-size:.68em;color:#e65100;flex-shrink:0;width:12px;text-align:center}
+.lbl{width:86px}
+.track{margin-right:60px}
+.val{right:-60px;padding-right:2px}
+</style></head><body>
+<div class="hdr">
+  <h1>Most Likely Places to Be Abducted in Canada (2020-2024)</h1>
+</div>
+<div class="tabs">
+  <button class="tab active" onclick="setM('rate')">Rate per Million</button>
+  <button class="tab" onclick="setM('sightings')">Total Sightings</button>
+  <button class="tab" onclick="setM('odds')">5-Year Odds (1 in X)</button>
+  <button class="tab" onclick="setM('pct')">Lifetime Chance %</button>
+</div>
+<div class="tab-note-row"><span id="tabnote"></span></div>
+<div class="ca" id="ca"></div>
+<div class="pager">
+  <button class="pbtn" id="pv" onclick="pg(-1)" disabled>Previous 10</button>
+  <span class="pi" id="pi"></span>
+  <button class="pbtn" id="nx" onclick="pg(1)">Next 10</button>
+</div>
+<div class="ftr">
+  <span class="fn">Source: Canadian UFO Survey 2020-2024 (canadianuforeport.ca) &middot; Population: Statistics Canada July 2025 &middot; Some city counts are from one survey year only and should be treated with caution</span>
+  <span class="brand">Canada Sports Betting</span>
+</div>
+<script>
+const D=[
+  {r:1,n:"Sherbrooke",p:"QC",rate:297.1,s:52,odds:3365,pct:0.4754,c:"MED"},
+  {r:2,n:"Vancouver",p:"BC",rate:255.7,s:179,odds:3911,pct:0.4091,c:"HIGH"},
+  {r:3,n:"London",p:"ON",rate:207.0,s:89,odds:4831,pct:0.3312,c:"HIGH"},
+  {r:4,n:"Victoria",p:"BC",rate:157.5,s:63,odds:6349,pct:0.2520,c:"MED"},
+  {r:5,n:"Hamilton",p:"ON",rate:133.9,s:79,odds:7468,pct:0.2142,c:"HIGH"},
+  {r:6,n:"Halifax",p:"NS",rate:115.6,s:52,odds:8654,pct:0.1849,c:"MED"},
+  {r:7,n:"Edmonton",p:"AB",rate:103.6,s:114,odds:9649,pct:0.1658,c:"HIGH"},
+  {r:8,n:"Quebec City",p:"QC",rate:96.5,s:55,odds:10364,pct:0.1544,c:"MED"},
+  {r:9,n:"Toronto",p:"ON",rate:88.7,s:275,odds:11273,pct:0.1419,c:"HIGH"},
+  {r:10,n:"Calgary",p:"AB",rate:82.1,s:115,odds:12174,pct:0.1314,c:"HIGH"},
+  {r:11,n:"Montreal",p:"QC",rate:72.4,s:152,odds:13816,pct:0.1158,c:"HIGH"},
+  {r:12,n:"Ottawa",p:"ON",rate:63.8,s:67,odds:15672,pct:0.1021,c:"MED"},
+  {r:13,n:"Winnipeg",p:"MB",rate:57.7,s:45,odds:17333,pct:0.0923,c:"MED"}
+];
+const NOTES={"rate":"How many UFO sightings were filed per million residents. Higher = more active per person.","sightings":"Raw sighting count 2020-2024. Does not account for population size.","odds":"Chance any one resident filed a report. Lower number = more likely.","pct":"Estimated chance of filing a UFO report at least once over an 80-year lifetime."};
+let M="rate",P=0;const PS=10;
+function setM(m){M=m;P=0;document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",["rate", "sightings", "odds"][i]===m));const n=document.getElementById("tabnote");if(n)n.textContent=NOTES[m]||"";render();}
+function pg(d){P+=d;render();}
+function gv(x){return M==="rate"?x.rate:M==="sightings"?x.s:M==="pct"?x.pct:x.odds;}
+function fmt(x){return M==="rate"?x.rate.toFixed(1)+"/M":M==="sightings"?x.s:M==="pct"?x.pct.toFixed(4)+"%":("1 in "+x.odds.toLocaleString());}
+function render(){
+  const sd=[...D];
+  if(M==="odds")sd.sort((a,b)=>a.odds-b.odds);else if(M==="sightings")sd.sort((a,b)=>b.s-a.s);else if(M==="pct")sd.sort((a,b)=>b.pct-a.pct);else sd.sort((a,b)=>b.rate-a.rate);
+  const st=P*PS,en=Math.min(st+PS,sd.length),sl=sd.slice(st,en);
+  const mx=M==="odds"?(1/sd[0].odds):gv(sd[0]);
+  document.getElementById("ca").innerHTML=sl.map(x=>{
+    const rv=M==="odds"?(1/x.odds):gv(x);
+    const pct=Math.max((rv/mx)*100,2);const f=rv/mx;
+    const bg=f>0.45?"linear-gradient(90deg,#1a4d35,#3ddc84)":"linear-gradient(90deg,#1a4d35,#2a8a55)";
+    const vl=fmt(x);const vs="right:-58px;color:#1a4d35";
+    return "<div class='row'><span class='rk'>"+x.r+"</span><span class='lbl'>"+x.n+"</span><div class='track'><div class='fill' style='width:"+pct+"%;background:"+bg+"'></div><span class='val' style='"+vs+"'>"+vl+"</span></div></div>";
+  }).join("");
+  document.getElementById("pi").textContent=(st+1)+"-"+en+" of "+sd.length;
+  document.getElementById("pv").disabled=P===0;
+  document.getElementById("nx").disabled=P>=Math.ceil(sd.length/PS)-1;
+}
+const n=document.getElementById("tabnote");if(n)n.textContent=NOTES["rate"]||"";
+render();
+</script></body></html>
