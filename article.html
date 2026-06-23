@@ -17,7 +17,7 @@
   background:#1C2B3A;padding:0 20px;
   display:flex;align-items:center;gap:8px;
   overflow-x:auto;scrollbar-width:none;
-  position:sticky;top:0;z-index:90;height:46px;
+  position:fixed;top:0;left:0;right:0;z-index:90;height:46px;
   border-bottom:2px solid #3ddc84;
 }
 .alien-topnav::-webkit-scrollbar{display:none}
@@ -36,7 +36,7 @@
 .alien-topnav a:hover{background:rgba(255,255,255,0.1)}
 .alien-topnav a.active{background:#3ddc84 !important;color:#000 !important;font-weight:700}
 /* BODY */
-.alien-body{padding:0 24px 48px}
+.alien-body{padding:54px 24px 48px}
 
 /* TYPE */
 .csb-alien-article h1{
@@ -207,7 +207,7 @@
 
 @media(max-width:600px){
   .csb-alien-article{font-size:16px}
-  .alien-body{padding:0 14px 32px}
+  .alien-body{padding:54px 14px 32px}
   .csb-alien-article h1{font-size:1.6em}
   .csb-alien-article h2{font-size:1.15em}
 }
