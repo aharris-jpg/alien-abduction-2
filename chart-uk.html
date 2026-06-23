@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Most Likely Places to Be Abducted in the UK (2020-2024)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#fff;color:#1C2B3A;display:flex;flex-direction:column}
+.hdr{background:#fff;border-bottom:2px solid #e2dfd8;padding:12px 16px 10px}
+.hdr h1{font-size:.92em;font-weight:700;color:#1C2B3A;line-height:1.25}
+.tabs{display:flex;padding:0 16px;border-bottom:2px solid #e2dfd8;background:#fff;gap:0}
+.tab{padding:8px 12px;font-size:.74em;font-weight:600;cursor:pointer;border:none;background:none;color:#8a9199;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;white-space:nowrap}
+.tab.active{color:#1a4d35;border-bottom-color:#3ddc84}
+.tab-note-row{padding:5px 16px 6px;background:#fafaf8;border-bottom:1px solid #e2dfd8;min-height:26px}
+#tabnote{font-family:system-ui,sans-serif;font-size:.69em;color:#8a9199;line-height:1.4}
+.ca{padding:10px 14px 6px}
+.row{display:flex;align-items:center;margin-bottom:7px;gap:6px;border-radius:4px;padding:2px 3px;transition:background .12s}
+.row:hover{background:rgba(61,220,132,.07)}
+.rk{font-size:.67em;font-weight:700;color:#b0bec5;width:16px;text-align:right;flex-shrink:0}
+.lbl{font-size:.75em;font-weight:600;color:#1C2B3A;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{flex:1;height:22px;background:#f0eeeb;border-radius:3px;position:relative;min-width:0}
+.fill{height:100%;border-radius:3px;position:absolute;left:0;top:0}
+.val{position:absolute;font-size:.7em;font-weight:700;white-space:nowrap;top:50%;transform:translateY(-50%)}
+.pager{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;border-top:1px solid #e2dfd8;background:#f6f5f2}
+.pbtn{font-size:.71em;font-weight:600;color:#1a4d35;background:none;border:1px solid #3ddc84;border-radius:4px;padding:4px 10px;cursor:pointer;transition:background .15s,color .15s}
+.pbtn:hover{background:#3ddc84;color:#1a4d35}
+.pbtn:disabled{opacity:.28;cursor:default}
+.pbtn:disabled:hover{background:none;color:#1a4d35}
+.pi{font-size:.7em;color:#8a9199}
+.ftr{padding:6px 14px 8px;border-top:1px solid #e2dfd8;background:#f6f5f2;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fn{font-size:.64em;color:#b0bec5;line-height:1.45}
+.brand{font-size:.68em;font-weight:700;color:#D0021B;white-space:nowrap;flex-shrink:0}
+.cbadge{font-size:.6em;padding:1px 5px;border-radius:3px;font-weight:600;flex-shrink:0}
+.ch{background:rgba(61,220,132,.1);color:#1a4d35;border:1px solid rgba(61,220,132,.28)}
+.cm{background:#fef3e2;color:#92400e;border:1px solid #fcd34d}
+.wb{font-size:.68em;color:#e65100;flex-shrink:0;width:12px;text-align:center}
+.lbl{width:102px}
+.track{margin-right:64px}
+.val{right:-64px;padding-right:2px}
+</style></head><body>
+<div class="hdr">
+  <h1>Most Likely Places to Be Abducted in the UK (2020-2024)</h1>
+</div>
+<div class="tabs">
+  <button class="tab active" onclick="setM('rate')">Rate per Million</button>
+  <button class="tab" onclick="setM('sightings')">Estimated Sightings</button>
+  <button class="tab" onclick="setM('odds')">5-Year Odds (1 in X)</button>
+  <button class="tab" onclick="setM('pct')">Lifetime Chance %</button>
+</div>
+<div class="tab-note-row"><span id="tabnote"></span></div>
+<div class="ca" id="ca"></div>
+<div class="pager">
+  <button class="pbtn" id="pv" onclick="pg(-1)" disabled>Previous 10</button>
+  <span class="pi" id="pi"></span>
+  <button class="pbtn" id="nx" onclick="pg(1)">Next 10</button>
+</div>
+<div class="ftr">
+  <span class="fn">Source: UFO Identified 2020-2024 (ufoidentified.co.uk) via 50+ Freedom of Information requests to UK police forces &middot; 2024 estimated at +25% &middot; Population: ONS mid-2023</span>
+  <span class="brand">Canada Sports Betting</span>
+</div>
+<script>
+const D=[
+  {r:1,n:"Cambridge",pct:0.2452,rate:153.2,s:19,odds:6526},
+  {r:2,n:"Brighton",pct:0.2309,rate:144.3,s:40,odds:6930},
+  {r:3,n:"Middlesbrough",pct:0.2267,rate:141.7,s:21,odds:7058},
+  {r:4,n:"Manchester",pct:0.2256,rate:141.0,s:78,odds:7093},
+  {r:5,n:"Southampton",pct:0.2135,rate:133.4,s:36,odds:7494},
+  {r:6,n:"Preston",pct:0.2029,rate:126.8,s:18,odds:7884},
+  {r:7,n:"Newcastle",pct:0.1902,rate:118.9,s:36,odds:8412},
+  {r:8,n:"Exeter",pct:0.147,rate:91.9,s:12,odds:10883},
+  {r:9,n:"Cardiff",pct:0.1323,rate:82.7,s:30,odds:12092},
+  {r:10,n:"Nottingham",pct:0.1238,rate:77.4,s:25,odds:12920},
+  {r:11,n:"Glasgow",pct:0.1233,rate:77.1,s:49,odds:12972},
+  {r:12,n:"Norwich",pct:0.1127,rate:70.4,s:15,odds:14200},
+  {r:13,n:"Plymouth",pct:0.1103,rate:69.0,s:18,odds:14500},
+  {r:14,n:"Bristol",pct:0.1017,rate:63.6,s:30,odds:15733},
+  {r:15,n:"Liverpool",pct:0.0996,rate:62.2,s:31,odds:16066},
+  {r:16,n:"Swansea",pct:0.0909,rate:56.8,s:14,odds:17605},
+  {r:17,n:"Leicester",pct:0.0868,rate:54.3,s:20,odds:18430},
+  {r:18,n:"Edinburgh",pct:0.0792,rate:49.5,s:26,odds:20190},
+  {r:19,n:"Sunderland",pct:0.0697,rate:43.6,s:12,odds:22959},
+  {r:20,n:"Birmingham",pct:0.0631,rate:39.4,s:45,odds:25374},
+  {r:21,n:"Sheffield",pct:0.0602,rate:37.6,s:22,odds:26584},
+  {r:22,n:"Leeds",pct:0.0512,rate:32.0,s:26,odds:31231},
+  {r:23,n:"Belfast",pct:0.0463,rate:29.0,s:10,odds:34542},
+  {r:24,n:"Aberdeen",pct:0.042,rate:26.2,s:6,odds:38133},
+  {r:25,n:"London",pct:0.0175,rate:10.9,s:96,odds:91665}
+];
+const NOTES={"rate":"How many UFO sightings were filed per million residents. Higher = more active per person.","sightings":"Estimated sighting count. 2020-2023 confirmed, 2024 estimated at +25%. Does not account for population.","odds":"Chance any one resident filed a report. Lower number = more likely.","pct":"Estimated chance of filing a UFO sighting report at least once over an 80-year lifetime."};
+let M="rate",P=0;const PS=10;
+function setM(m){M=m;P=0;document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",["rate", "sightings", "odds"][i]===m));const n=document.getElementById("tabnote");if(n)n.textContent=NOTES[m]||"";render();}
+function pg(d){P+=d;render();}
+function gv(x){return M==="rate"?x.rate:M==="sightings"?x.s:M==="pct"?x.pct:x.odds;}
+function fmt(x){return M==="rate"?x.rate.toFixed(1)+"/M":M==="sightings"?x.s+" est.":M==="pct"?x.pct.toFixed(4)+"%":("1 in "+x.odds.toLocaleString());}
+function render(){
+  const sd=[...D];
+  if(M==="odds")sd.sort((a,b)=>a.odds-b.odds);else if(M==="sightings")sd.sort((a,b)=>b.s-a.s);else if(M==="pct")sd.sort((a,b)=>b.pct-a.pct);else sd.sort((a,b)=>b.rate-a.rate);
+  const st=P*PS,en=Math.min(st+PS,sd.length),sl=sd.slice(st,en);
+  const mx=M==="odds"?(1/sd[0].odds):gv(sd[0]);
+  document.getElementById("ca").innerHTML=sl.map(x=>{
+    const rv=M==="odds"?(1/x.odds):gv(x);
+    const pct=Math.max((rv/mx)*100,1);const f=rv/mx;
+    const bg=f>0.45?"linear-gradient(90deg,#1a4d35,#3ddc84)":"linear-gradient(90deg,#1a4d35,#2a8a55)";
+    const vl=fmt(x);const vs="right:-62px;color:#1a4d35";
+    return "<div class='row'><span class='rk'>"+x.r+"</span><span class='lbl'>"+x.n+"</span><div class='track'><div class='fill' style='width:"+pct+"%;background:"+bg+"'></div><span class='val' style='"+vs+"'>"+vl+"</span></div></div>";
+  }).join("");
+  document.getElementById("pi").textContent=(st+1)+"-"+en+" of "+sd.length;
+  document.getElementById("pv").disabled=P===0;
+  document.getElementById("nx").disabled=P>=Math.ceil(sd.length/PS)-1;
+}
+const n=document.getElementById("tabnote");if(n)n.textContent=NOTES["rate"]||"";
+render();
+</script></body></html>
