@@ -58,34 +58,7 @@
 
 
 
-/* STAT CALLOUT */
-.stat-callout{
-  border-left:4px solid var(--signal);
-  background:var(--offwhite);
-  border-radius:0 8px 8px 0;
-  padding:13px 18px;
-  margin:1.5em 0;
-}
-.stat-callout .sc-body{
-  font-family:system-ui,sans-serif;
-  font-size:.84em;
-  line-height:1.55;
-  color:var(--text);
-}
-.stat-callout .sc-body strong{
-  display:block;
-  font-size:1.05em;
-  color:var(--navy);
-  margin-bottom:4px;
-  font-weight:700;
-}
-.stat-callout .sc-body em{
-  display:block;
-  font-style:normal;
-  font-size:.9em;
-  color:var(--muted);
-  margin-top:5px;
-}
+
 
 /* FINDINGS CARDS */
 .findings-grid{
@@ -120,13 +93,20 @@
 .finding-card .fc-sub strong{color:var(--navy)}
 
 /* COUNTRY DIVIDER */
-.country-divider{display:flex;align-items:center;gap:14px;margin:2.6em 0 1.2em}
-.country-divider::before,.country-divider::after{content:"";flex:1;height:1px;background:var(--border)}
-.country-pill{
-  font-family:system-ui,sans-serif;font-size:.7em;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  background:var(--signal);color:var(--deep);
-  padding:5px 14px;border-radius:20px;white-space:nowrap;
+.country-banner{
+  background:#1C2B3A;border-radius:10px;
+  padding:18px 22px;margin:2.8em 0 1.4em;
+  display:flex;align-items:center;gap:12px;
+  border-left:5px solid var(--signal);
+}
+.country-banner .cb-flag{font-size:1.6em;line-height:1;}
+.country-banner .cb-name{
+  font-family:system-ui,sans-serif;font-size:1em;font-weight:700;
+  color:#fff;letter-spacing:.02em;
+}
+.country-banner .cb-tag{
+  font-family:system-ui,sans-serif;font-size:.68em;font-weight:600;
+  color:var(--signal);margin-left:auto;letter-spacing:.04em;text-transform:uppercase;
 }
 .country-meta{
   font-family:system-ui,sans-serif;font-size:.75em;color:var(--muted);
@@ -258,8 +238,10 @@
 </div>
 
 <!-- ===== CANADA ===== -->
-<div class="country-divider" id="canada">
-  <span class="country-pill">Canada</span>
+<div class="country-banner" id="canada">
+  <span class="cb-flag">🇨🇦</span>
+  <span class="cb-name">Canada</span>
+  <span class="cb-tag">Section 1</span>
 </div>
 <p class="country-meta">Source: Canadian UFO Survey annual reports 2020–2024, produced by Ufology Research (canadianuforeport.ca) &nbsp;·&nbsp; 13 cities ranked by total UFO sightings per 100,000 residents &nbsp;·&nbsp; Population: Statistics Canada city estimates, July 2025</p>
 
@@ -267,14 +249,6 @@
 
 <p>Canada recorded 4,311 UFO sightings between 2020 and 2024. The survey does not flag reports for abduction specifically, so total sightings per person is the closest available measure.</p>
 <p>Every one of the 13 ranked Canadian cities would place inside the UK top three. The gap between Sherbrooke (297/M) and Winnipeg (57/M) is wider than the entire US first-to-last spread.</p>
-
-<div class="stat-callout">
-  <div class="sc-body">
-    <strong>Sherbrooke, QC: 297 sightings per million.</strong>
-    Vermont leads the entire US at 10.89. A Canadian city of 175,000 beats every American state.
-    <em>Canada Sports Betting Alien Abduction Odds Index 2026</em>
-  </div>
-</div>
 
 <div class="caveat-note">Some city counts were confirmed in one survey year only and should be treated with caution. Halifax is explicitly flagged in the 2024 Canadian UFO Survey as potentially overrepresented due to active UFO social media networks in Nova Scotia.</div>
 
@@ -349,8 +323,10 @@
 </div>
 
 <!-- ===== UNITED STATES ===== -->
-<div class="country-divider" id="us">
-  <span class="country-pill">United States</span>
+<div class="country-banner" id="us">
+  <span class="cb-flag">🇺🇸</span>
+  <span class="cb-name">United States</span>
+  <span class="cb-tag">Section 2</span>
 </div>
 <p class="country-meta">Source: National UFO Reporting Center (NUFORC) dataset via Hugging Face 2020–2024 &nbsp;·&nbsp; 50 states ranked by abduction-flagged reports per 100,000 residents &nbsp;·&nbsp; Population: US Census Bureau Vintage 2025</p>
 
@@ -358,14 +334,6 @@
 
 <p>The US dataset is the most precise of the three. The National UFO Reporting Center (NUFORC) flags individual reports as "Possible Abduction" or "Missing Time", collectively called close encounter or CE reports.</p>
 <p>Of 18,561 US sighting reports filed between 2020 and 2024, <strong>609 carried an abduction flag</strong>. Those 609 reports spread across 49 states. South Dakota recorded zero. Louisiana recorded one.</p>
-
-<div class="stat-callout">
-  <div class="sc-body">
-    <strong>Only 609 of 18,561 US sightings were abduction-flagged.</strong>
-    That is 1 in every 30 UFO reports filed between 2020 and 2024.
-    <em>Canada Sports Betting Alien Abduction Odds Index 2026</em>
-  </div>
-</div>
 
 <div class="caveat-note">States marked ⚠ have fewer than 5 abduction-flagged reports over the five-year period. Their rates are statistically volatile. Oregon (#2, 28 reports) and Washington (#4, 37 reports) are the two most reliable high-ranking states.</div>
 
@@ -443,8 +411,10 @@
 </div>
 
 <!-- ===== UK ===== -->
-<div class="country-divider" id="uk">
-  <span class="country-pill">United Kingdom</span>
+<div class="country-banner" id="uk">
+  <span class="cb-flag">🇬🇧</span>
+  <span class="cb-name">United Kingdom</span>
+  <span class="cb-tag">Section 3</span>
 </div>
 <p class="country-meta">Source: UFO Identified annual reports 2020–2024, collected via 50+ Freedom of Information (FOI) requests to UK police forces plus social media monitoring (ufoidentified.co.uk) &nbsp;·&nbsp; 25 cities ranked by total sightings per 100,000 residents &nbsp;·&nbsp; Population: Office for National Statistics (ONS) mid-2023</p>
 
@@ -452,14 +422,6 @@
 
 <p>25 UK cities ranked using data from UFO Identified, compiled through 50+ Freedom of Information requests to UK police forces. 2020 to 2023 figures are confirmed. 2024 estimated at +25%.</p>
 <p>Cambridge: 153 per million. London: 11. The gap is the story.</p>
-
-<div class="stat-callout">
-  <div class="sc-body">
-    <strong>Cambridge: 153 sightings per million. London: 11.</strong>
-    Same country, same five years. You are 14 times more likely to file a report in Cambridge.
-    <em>Canada Sports Betting Alien Abduction Odds Index 2026</em>
-  </div>
-</div>
 
 <div class="caveat-note">UK city figures were read from a cumulative interactive map and may include sightings from nearby areas. Rankings are indicative rather than exact. 2024 totals are estimates based on a 25% uplift applied to confirmed 2020-2023 counts.</div>
 
