@@ -39,11 +39,8 @@ body{font-family:system-ui,sans-serif;background:#fff;color:#1C2B3A;display:flex
 </div>
 <div class="tabs">
   <button class="tab active" onclick="setM('rate')">Rate per Million</button>
-  <button class="tab" onclick="setM('sightings')">Total Sightings</button>
   <button class="tab" onclick="setM('odds')">5-Year Odds (1 in X)</button>
-  <button class="tab" onclick="setM('pct')">Lifetime Chance %</button>
 </div>
-<div class="tab-note-row"><span id="tabnote"></span></div>
 <div class="ca" id="ca"></div>
 <div class="pager">
   <button class="pbtn" id="pv" onclick="pg(-1)" disabled>Previous 10</button>
@@ -70,15 +67,15 @@ const D=[
   {r:12,n:"Ottawa",p:"ON",rate:63.8,s:67,odds:15672,pct:0.1021,c:"MED"},
   {r:13,n:"Winnipeg",p:"MB",rate:57.7,s:45,odds:17333,pct:0.0923,c:"MED"}
 ];
-const NOTES={"rate":"How many UFO sightings were filed per million residents. Higher = more active per person.","sightings":"Raw sighting count 2020-2024. Does not account for population size.","odds":"Chance any one resident filed a report. Lower number = more likely.","pct":"Estimated chance of filing a UFO report at least once over an 80-year lifetime."};
+const NOTES={};
 let M="rate",P=0;const PS=10;
-function setM(m){M=m;P=0;document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",["rate", "sightings", "odds"][i]===m));const n=document.getElementById("tabnote");if(n)n.textContent=NOTES[m]||"";render();}
+function setM(m){M=m;P=0;document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",["rate", "odds"][i]===m));render();}
 function pg(d){P+=d;render();}
-function gv(x){return M==="rate"?x.rate:M==="sightings"?x.s:M==="pct"?x.pct:x.odds;}
-function fmt(x){return M==="rate"?x.rate.toFixed(1)+"/M":M==="sightings"?x.s:M==="pct"?x.pct.toFixed(4)+"%":("1 in "+x.odds.toLocaleString());}
+function gv(x){return M==="rate"?x.rate:x.odds;}
+function fmt(x){return M==="rate"?x.rate.toFixed(1)+"/M":("1 in "+x.odds.toLocaleString());}
 function render(){
   const sd=[...D];
-  if(M==="odds")sd.sort((a,b)=>a.odds-b.odds);else if(M==="sightings")sd.sort((a,b)=>b.s-a.s);else if(M==="pct")sd.sort((a,b)=>b.pct-a.pct);else sd.sort((a,b)=>b.rate-a.rate);
+  if(M==="odds")sd.sort((a,b)=>a.odds-b.odds);else sd.sort((a,b)=>b.rate-a.rate);
   const st=P*PS,en=Math.min(st+PS,sd.length),sl=sd.slice(st,en);
   const mx=M==="odds"?(1/sd[0].odds):gv(sd[0]);
   document.getElementById("ca").innerHTML=sl.map(x=>{
@@ -92,6 +89,6 @@ function render(){
   document.getElementById("pv").disabled=P===0;
   document.getElementById("nx").disabled=P>=Math.ceil(sd.length/PS)-1;
 }
-const n=document.getElementById("tabnote");if(n)n.textContent=NOTES["rate"]||"";
+
 render();
 </script></body></html>
