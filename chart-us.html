@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Most Likely Places to Be Abducted in the US (2020-2024)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#fff;color:#1C2B3A;display:flex;flex-direction:column}
+.hdr{background:#fff;border-bottom:2px solid #e2dfd8;padding:12px 16px 10px}
+.hdr h1{font-size:.92em;font-weight:700;color:#1C2B3A;line-height:1.25}
+.tabs{display:flex;padding:0 16px;border-bottom:2px solid #e2dfd8;background:#fff;gap:0}
+.tab{padding:8px 12px;font-size:.74em;font-weight:600;cursor:pointer;border:none;background:none;color:#8a9199;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;white-space:nowrap}
+.tab.active{color:#1a4d35;border-bottom-color:#3ddc84}
+.tab-note-row{padding:5px 16px 6px;background:#fafaf8;border-bottom:1px solid #e2dfd8;min-height:26px}
+#tabnote{font-family:system-ui,sans-serif;font-size:.69em;color:#8a9199;line-height:1.4}
+.ca{padding:10px 14px 6px}
+.row{display:flex;align-items:center;margin-bottom:7px;gap:6px;border-radius:4px;padding:2px 3px;transition:background .12s}
+.row:hover{background:rgba(61,220,132,.07)}
+.rk{font-size:.67em;font-weight:700;color:#b0bec5;width:16px;text-align:right;flex-shrink:0}
+.lbl{font-size:.75em;font-weight:600;color:#1C2B3A;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{flex:1;height:22px;background:#f0eeeb;border-radius:3px;position:relative;min-width:0}
+.fill{height:100%;border-radius:3px;position:absolute;left:0;top:0}
+.val{position:absolute;font-size:.7em;font-weight:700;white-space:nowrap;top:50%;transform:translateY(-50%)}
+.pager{display:flex;align-items:center;justify-content:space-between;padding:7px 14px;border-top:1px solid #e2dfd8;background:#f6f5f2}
+.pbtn{font-size:.71em;font-weight:600;color:#1a4d35;background:none;border:1px solid #3ddc84;border-radius:4px;padding:4px 10px;cursor:pointer;transition:background .15s,color .15s}
+.pbtn:hover{background:#3ddc84;color:#1a4d35}
+.pbtn:disabled{opacity:.28;cursor:default}
+.pbtn:disabled:hover{background:none;color:#1a4d35}
+.pi{font-size:.7em;color:#8a9199}
+.ftr{padding:6px 14px 8px;border-top:1px solid #e2dfd8;background:#f6f5f2;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fn{font-size:.64em;color:#b0bec5;line-height:1.45}
+.wb{font-size:.68em;color:#e65100;flex-shrink:0;width:12px;text-align:center}
+.brand{font-size:.68em;font-weight:700;color:#D0021B;white-space:nowrap;flex-shrink:0}
+.cbadge{font-size:.6em;padding:1px 5px;border-radius:3px;font-weight:600;flex-shrink:0}
+.ch{background:rgba(61,220,132,.1);color:#1a4d35;border:1px solid rgba(61,220,132,.28)}
+.cm{background:#fef3e2;color:#92400e;border:1px solid #fcd34d}
+.wb{font-size:.68em;color:#e65100;flex-shrink:0;width:12px;text-align:center}
+.lbl{width:118px}
+.track{margin-right:68px}
+.val{right:-68px;padding-right:2px}
+</style></head><body>
+<div class="hdr">
+  <h1>Most Likely Places to Be Abducted in the US (2020-2024)</h1>
+</div>
+<div class="tabs">
+  <button class="tab active" onclick="setM('rate')">Rate per Million</button>
+  <button class="tab" onclick="setM('ce')">Abduction-Flagged Reports</button>
+  <button class="tab" onclick="setM('odds')">5-Year Odds (1 in X)</button>
+  <button class="tab" onclick="setM('pct')">Lifetime Chance %</button>
+</div>
+<div class="tab-note-row"><span id="tabnote"></span></div>
+<div class="ca" id="ca"></div>
+<div class="pager">
+  <button class="pbtn" id="pv" onclick="pg(-1)" disabled>Previous 10</button>
+  <span class="pi" id="pi"></span>
+  <button class="pbtn" id="nx" onclick="pg(1)">Next 10</button>
+</div>
+<div class="ftr">
+  <span class="fn">Reports flagged as Possible Abduction or Missing Time, per million residents &middot; National UFO Reporting Center (NUFORC) &middot; US Census Bureau Vintage 2025 &middot; ⚠ = fewer than 5 flagged reports</span>
+  <span class="brand">Canada Sports Betting</span>
+</div>
+<script>
+const D=[
+  {r:1,n:"Vermont",pct:0.0174,rate:10.890,ce:7,odds:91829,w:false},
+  {r:2,n:"Oregon",pct:0.0105,rate:6.539,ce:28,odds:152923,w:false},
+  {r:3,n:"New Hampshire",pct:0.0079,rate:4.922,ce:7,odds:203167,w:false},
+  {r:4,n:"Washington",pct:0.0073,rate:4.583,ce:37,odds:218218,w:false},
+  {r:5,n:"West Virginia",pct:0.0073,rate:4.533,ce:8,odds:220612,w:false},
+  {r:6,n:"Alaska",pct:0.0065,rate:4.065,ce:3,odds:246001,w:true},
+  {r:7,n:"Iowa",pct:0.0059,rate:3.696,ce:12,odds:270527,w:false},
+  {r:8,n:"Rhode Island",pct:0.0057,rate:3.576,ce:4,odds:279657,w:true},
+  {r:9,n:"Colorado",pct:0.0056,rate:3.479,ce:21,odds:287458,w:false},
+  {r:10,n:"Montana",pct:0.0056,rate:3.473,ce:4,odds:287958,w:true},
+  {r:11,n:"Wisconsin",pct:0.0051,rate:3.173,ce:19,odds:315179,w:false},
+  {r:12,n:"Maine",pct:0.0045,rate:2.814,ce:4,odds:355328,w:true},
+  {r:13,n:"Delaware",pct:0.0045,rate:2.804,ce:3,odds:356594,w:true},
+  {r:14,n:"South Carolina",pct:0.004,rate:2.478,ce:14,odds:403588,w:false},
+  {r:15,n:"Idaho",pct:0.0039,rate:2.429,ce:5,odds:411719,w:false},
+  {r:16,n:"Oklahoma",pct:0.0039,rate:2.410,ce:10,odds:414882,w:false},
+  {r:17,n:"New Mexico",pct:0.0038,rate:2.354,ce:5,odds:424844,w:false},
+  {r:18,n:"New Jersey",pct:0.0037,rate:2.294,ce:22,odds:435913,w:false},
+  {r:19,n:"Indiana",pct:0.0037,rate:2.282,ce:16,odds:438244,w:false},
+  {r:20,n:"Utah",pct:0.0036,rate:2.238,ce:8,odds:446853,w:false},
+  {r:21,n:"Michigan",pct:0.0035,rate:2.166,ce:22,odds:461628,w:false},
+  {r:22,n:"Connecticut",pct:0.0035,rate:2.161,ce:8,odds:462818,w:false},
+  {r:23,n:"Hawaii",pct:0.0034,rate:2.097,ce:3,odds:476896,w:true},
+  {r:24,n:"Ohio",pct:0.0033,rate:2.094,ce:25,odds:477616,w:false},
+  {r:25,n:"Mississippi",pct:0.0032,rate:2.028,ce:6,odds:493025,w:false},
+  {r:26,n:"Nebraska",pct:0.0032,rate:1.970,ce:4,odds:507605,w:true},
+  {r:27,n:"North Carolina",pct:0.0028,rate:1.763,ce:20,odds:567194,w:false},
+  {r:28,n:"Wyoming",pct:0.0027,rate:1.693,ce:1,odds:590784,w:true},
+  {r:29,n:"Kansas",pct:0.0027,rate:1.673,ce:5,odds:597838,w:false},
+  {r:30,n:"New York",pct:0.0026,rate:1.650,ce:33,odds:606165,w:false},
+  {r:31,n:"Florida",pct:0.0026,rate:1.606,ce:38,odds:622610,w:false},
+  {r:32,n:"California",pct:0.0025,rate:1.550,ce:61,odds:645014,w:false},
+  {r:33,n:"Minnesota",pct:0.0025,rate:1.535,ce:9,odds:651489,w:false},
+  {r:34,n:"Kentucky",pct:0.0024,rate:1.512,ce:7,odds:661383,w:false},
+  {r:35,n:"Nevada",pct:0.0024,rate:1.510,ce:5,odds:662167,w:false},
+  {r:36,n:"Virginia",pct:0.0023,rate:1.454,ce:13,odds:687736,w:false},
+  {r:37,n:"Pennsylvania",pct:0.0023,rate:1.453,ce:19,odds:688053,w:false},
+  {r:38,n:"Maryland",pct:0.0023,rate:1.432,ce:9,odds:698376,w:false},
+  {r:39,n:"Missouri",pct:0.0023,rate:1.429,ce:9,odds:699726,w:false},
+  {r:40,n:"Arizona",pct:0.0021,rate:1.300,ce:10,odds:769121,w:false},
+  {r:41,n:"North Dakota",pct:0.002,rate:1.242,ce:1,odds:805329,w:true},
+  {r:42,n:"Alabama",pct:0.0018,rate:1.149,ce:6,odds:870520,w:false},
+  {r:43,n:"Tennessee",pct:0.0017,rate:1.084,ce:8,odds:922358,w:false},
+  {r:44,n:"Georgia",pct:0.0015,rate:0.965,ce:11,odds:1036481,w:false},
+  {r:45,n:"Arkansas",pct:0.0015,rate:0.957,ce:3,odds:1044501,w:true},
+  {r:46,n:"Massachusetts",pct:0.0013,rate:0.837,ce:6,odds:1194935,w:false},
+  {r:47,n:"Illinois",pct:0.0013,rate:0.785,ce:10,odds:1273525,w:false},
+  {r:48,n:"Texas",pct:0.0009,rate:0.592,ce:19,odds:1689530,w:false},
+  {r:49,n:"Louisiana",pct:0.0003,rate:0.216,ce:1,odds:4621500,w:true},
+  {r:50,n:"South Dakota",pct:0.0,rate:0.000,ce:0,odds:9999999,w:false}
+];
+const NOTES={"rate":"Abduction-flagged reports per million residents. Higher = more likely per person.","ce":"Raw count of reports flagged as Possible Abduction or Missing Time by NUFORC. Does not account for population.","odds":"Chance any one resident filed an abduction-flagged report. Lower number = more likely.","pct":"Estimated chance of filing an abduction-flagged report at least once over an 80-year lifetime."};
+let M="rate",P=0;const PS=10;
+function setM(m){M=m;P=0;document.querySelectorAll(".tab").forEach((t,i)=>t.classList.toggle("active",["rate", "ce", "odds"][i]===m));const n=document.getElementById("tabnote");if(n)n.textContent=NOTES[m]||"";render();}
+function pg(d){P+=d;render();}
+function gv(x){return M==="rate"?x.rate:M==="ce"?x.ce:M==="pct"?x.pct:x.odds;}
+function fmt(x){return M==="rate"?x.rate.toFixed(2)+"/M":M==="ce"?x.ce+" reports":M==="pct"?x.pct.toFixed(4)+"%":("1 in "+x.odds.toLocaleString());}
+function render(){
+  const sd=[...D];
+  if(M==="odds")sd.sort((a,b)=>a.odds-b.odds);else if(M==="ce")sd.sort((a,b)=>b.ce-a.ce);else if(M==="pct")sd.sort((a,b)=>b.pct-a.pct);else sd.sort((a,b)=>b.rate-a.rate);
+  const st=P*PS,en=Math.min(st+PS,sd.length),sl=sd.slice(st,en);
+  const mx=M==="odds"?(1/Math.max(sd[0].odds,1)):Math.max(gv(sd[0]),0.001);
+  document.getElementById("ca").innerHTML=sl.map(x=>{
+    const rv=M==="odds"?(1/Math.max(x.odds,1)):gv(x);
+    const pct=Math.max((rv/mx)*100,1);const f=rv/mx;
+    const bg=f>0.45?"linear-gradient(90deg,#1a4d35,#3ddc84)":"linear-gradient(90deg,#1a4d35,#2a8a55)";
+    const vl=fmt(x);const vs="right:-66px;color:#1a4d35";
+    return "<div class='row'><span class='rk'>"+x.r+"</span><span class='lbl'>"+x.n+"</span><div class='track'><div class='fill' style='width:"+pct+"%;background:"+bg+"'></div><span class='val' style='"+vs+"'>"+vl+"</span></div><span class='wb'>"+(x.w?"⚠":"")+"</span></div>";
+  }).join("");
+  document.getElementById("pi").textContent=(st+1)+"-"+en+" of "+sd.length;
+  document.getElementById("pv").disabled=P===0;
+  document.getElementById("nx").disabled=P>=Math.ceil(sd.length/PS)-1;
+}
+const n=document.getElementById("tabnote");if(n)n.textContent=NOTES["rate"]||"";
+render();
+</script></body></html>
