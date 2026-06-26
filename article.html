@@ -28,8 +28,7 @@
 .alien-nav a:not(.nav-brand){
   font-family:system-ui,sans-serif;font-size:.68em;font-weight:600;
   color:#fff !important;text-decoration:none;
-  padding:4px 9px;border-radius:4px;white-space:nowrap;
-  transition:background .15s;
+  padding:4px 9px;border-radius:4px;white-space:nowrap;transition:background .15s;
 }
 .alien-nav a:hover:not(.nav-brand){background:rgba(255,255,255,0.1)}
 .alien-nav a.active{background:var(--signal) !important;color:#000 !important;font-weight:700}
@@ -56,40 +55,38 @@
 .csb-alien strong{font-weight:700}
 .csb-alien a{color:var(--deep);text-decoration:underline}
 
-/* COUNTRY SELECTOR */
-.country-selector{
-  margin:24px 0 0;
+/* SELECTOR */
+.country-selector{margin:24px 0 0}
+.selector-label{
+  font-family:system-ui,sans-serif;font-size:1em;font-weight:800;
+  color:var(--navy);text-align:center;text-transform:uppercase;
+  letter-spacing:.12em;margin:0 0 14px;
+  display:flex;align-items:center;gap:10px;justify-content:center;
 }
-.selector-intro{
-  font-family:system-ui,sans-serif;font-size:.9em;color:var(--muted);
-  margin-bottom:16px;line-height:1.5;
+.selector-label::before,.selector-label::after{
+  content:'';flex:1;height:2px;background:var(--border);
 }
-.selector-intro strong{color:var(--navy)}
-.selector-buttons{display:flex;flex-direction:column;gap:12px}
+.selector-buttons{display:flex;flex-direction:column;gap:14px}
 .sel-btn{
-  display:flex;align-items:center;gap:16px;
-  background:var(--offwhite);border:1px solid var(--border);
-  border-left:4px solid var(--signal);border-radius:10px;
-  padding:18px 20px;cursor:pointer;text-align:left;
-  transition:background .15s,border-color .15s,transform .1s;
-  width:100%;
+  display:flex;align-items:center;gap:20px;
+  background:var(--navy);border:3px solid var(--signal);
+  border-radius:12px;padding:26px 24px;cursor:pointer;text-align:left;
+  transition:background .15s,transform .12s,box-shadow .12s;width:100%;
+  box-shadow:0 2px 8px rgba(61,220,132,0.15);
 }
-.sel-btn:hover{background:var(--wash);transform:translateX(3px)}
-.sel-btn .sb-flag{font-size:2em;line-height:1;flex-shrink:0}
-.sel-btn .sb-text{flex:1}
+.sel-btn:hover{background:#0f1e2c;transform:translateY(-2px);box-shadow:0 6px 20px rgba(61,220,132,0.3)}
+.sel-btn .sb-flag{font-size:3.2em;line-height:1;flex-shrink:0}
 .sel-btn .sb-country{
-  font-family:system-ui,sans-serif;font-size:1.05em;font-weight:700;
-  color:var(--navy);display:block;margin-bottom:3px;
+  font-family:system-ui,sans-serif;font-size:1.4em;font-weight:800;
+  color:#fff;display:block;margin-bottom:6px;
 }
-.sel-btn .sb-stat{
-  font-family:system-ui,sans-serif;font-size:.78em;color:var(--muted);
+.sel-btn .sb-action{
+  font-family:system-ui,sans-serif;font-size:1em;font-weight:700;
+  color:#fff;letter-spacing:.02em;margin-top:6px;display:block;opacity:.9;
 }
-.sel-btn .sb-stat strong{color:var(--deep)}
-.sel-btn .sb-arrow{
-  font-size:1.2em;color:var(--signal);flex-shrink:0;
-}
+.sel-btn .sb-arrow{font-size:2em;color:#fff;flex-shrink:0;font-weight:700}
 
-/* SWITCH COUNTRY */
+/* SWITCH BAR */
 .switch-bar{
   font-family:system-ui,sans-serif;font-size:.8em;
   background:var(--offwhite);border:1px solid var(--border);
@@ -100,13 +97,10 @@
 .switch-bar button{
   background:none;border:1px solid var(--border);border-radius:4px;
   font-family:system-ui,sans-serif;font-size:.88em;font-weight:600;
-  color:var(--deep);padding:3px 10px;cursor:pointer;
-  transition:background .15s,color .15s;
+  color:var(--deep);padding:3px 10px;cursor:pointer;transition:background .15s,color .15s;
 }
 .switch-bar button:hover{background:var(--signal);color:var(--deep);border-color:var(--signal)}
-.switch-bar button.active-country{
-  background:var(--signal);color:var(--deep);border-color:var(--signal);
-}
+.switch-bar button.active-country{background:var(--signal);color:var(--deep);border-color:var(--signal)}
 
 /* COUNTRY BANNER */
 .country-banner{
@@ -115,9 +109,7 @@
   border-left:5px solid var(--signal);
 }
 .country-banner .cb-flag{font-size:1.6em;line-height:1}
-.country-banner .cb-name{
-  font-family:system-ui,sans-serif;font-size:1em;font-weight:700;color:#fff;
-}
+.country-banner .cb-name{font-family:system-ui,sans-serif;font-size:1em;font-weight:700;color:#fff}
 .country-banner .cb-tag{
   font-family:system-ui,sans-serif;font-size:.68em;font-weight:600;
   color:var(--signal);margin-left:auto;text-transform:uppercase;letter-spacing:.04em;
@@ -125,32 +117,28 @@
 
 /* FINDINGS CARDS */
 .findings-grid{display:flex;flex-direction:column;gap:10px;margin:0 0 1.8em}
+.findings-list{margin:0 0 1.8em;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.findings-list li{
+  background:var(--offwhite);border:1px solid var(--border);
+  border-left:3px solid var(--signal);border-radius:0 8px 8px 0;
+  padding:10px 14px;font-family:system-ui,sans-serif;font-size:.83em;
+  color:var(--navy);line-height:1.5;
+}
+.findings-list li strong{color:var(--navy)}
 .finding-card{
   background:var(--offwhite);border:1px solid var(--border);border-radius:10px;
   padding:14px 18px;display:flex;align-items:center;gap:16px;
 }
-.finding-card .fc-left{
-  display:flex;flex-direction:column;align-items:center;
-  min-width:80px;flex-shrink:0;text-align:center;
-}
+.finding-card .fc-left{display:flex;flex-direction:column;align-items:center;min-width:80px;flex-shrink:0;text-align:center}
 .finding-card .fc-flag{font-size:1.5em;line-height:1;margin-bottom:3px}
-.finding-card .fc-country{
-  font-family:system-ui,sans-serif;font-size:.58em;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
-}
+.finding-card .fc-country{font-family:system-ui,sans-serif;font-size:.58em;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .finding-card .fc-divider{width:1px;background:var(--border);align-self:stretch;flex-shrink:0}
 .finding-card .fc-right{flex:1;min-width:0}
-.finding-card .fc-label{
-  font-family:system-ui,sans-serif;font-size:.78em;color:var(--navy);
-  line-height:1.4;margin-bottom:6px;
-}
-.finding-card .fc-sub{
-  font-family:system-ui,sans-serif;font-size:.69em;color:var(--muted);line-height:1.45;
-}
+.finding-card .fc-label{font-family:system-ui,sans-serif;font-size:.78em;color:var(--navy);line-height:1.4;margin-bottom:6px}
+.finding-card .fc-sub{font-family:system-ui,sans-serif;font-size:.69em;color:var(--muted);line-height:1.45}
 .finding-card .fc-sub strong{color:var(--navy)}
 
-
-/* ODDS COMPARISON */
+/* ODDS BOX */
 .odds-box{
   font-family:system-ui,sans-serif;font-size:.76em;
   background:rgba(61,220,132,0.07);border-left:3px solid var(--signal);
@@ -174,8 +162,7 @@
 /* EXPERT */
 .expert-block{
   border:1px solid var(--border);border-left:4px solid var(--signal);
-  border-radius:0 8px 8px 0;background:var(--offwhite);
-  padding:18px 22px;margin:1.6em 0;
+  border-radius:0 8px 8px 0;background:var(--offwhite);padding:18px 22px;margin:1.6em 0;
 }
 .expert-block p{font-size:.93em;color:var(--navy);margin:0 0 .8em;line-height:1.65}
 .expert-block p:last-of-type{margin-bottom:0}
@@ -198,14 +185,10 @@
 .methodology-block strong{color:var(--navy);font-weight:700}
 .methodology-block p{margin:0 0 .85em}
 .methodology-block p:last-child{margin:0}
-.sources-list{
-  font-family:system-ui,sans-serif;font-size:.8em;padding-left:16px;
-  color:var(--muted);line-height:1.9;
-}
+.sources-list{font-family:system-ui,sans-serif;font-size:.8em;padding-left:16px;color:var(--muted);line-height:1.9}
 .sources-list a{color:var(--deep)}
 .final-line{font-style:italic;font-size:1em;color:var(--muted);text-align:center;margin:1.4em 0 .5em}
 
-/* HIDDEN */
 .country-section{display:none}
 .country-section.active{display:block}
 
@@ -214,8 +197,8 @@
   .alien-body{padding:54px 14px 32px}
   .csb-alien h1{font-size:1.6em}
   .csb-alien h2{font-size:1.15em}
-  .sel-btn{padding:14px 16px}
-  .sel-btn .sb-flag{font-size:1.6em}
+  .sel-btn{padding:18px 16px}
+  .sel-btn .sb-flag{font-size:2.4em}
 }
 </style>
 
@@ -229,19 +212,21 @@
 
 <div class="alien-body">
 
-<div id="article-intro"><h1>Where Are You Most Likely to Be Abducted by Aliens? We Ranked the US, Canada, and the UK</h1>
-
-<p>At Canada Sports Betting, we price odds for a living. We applied that same approach to three national UFO databases from 2020 to 2024 and ranked every US state, 13 Canadian cities, and 25 UK cities by individual abduction odds. Select your country below.</p>
-
+<div id="article-intro">
+<h1>Where Are You Most Likely to Be Abducted by Aliens? We Ranked the US, Canada, and the UK</h1>
+<p>At Canada Sports Betting, we price odds for a living. We applied that same approach to three national UFO databases from 2020 to 2024 and ranked every US state, 13 Canadian cities, and 25 UK cities by individual abduction odds.</p>
+<p>Select your country below.</p>
 </div>
+
 <!-- SELECTOR -->
 <div class="country-selector" id="selector">
+  <div class="selector-label">Choose your country</div>
   <div class="selector-buttons">
     <button class="sel-btn" onclick="showCountry('canada')">
       <span class="sb-flag">&#127464;&#127462;</span>
       <span class="sb-text">
         <span class="sb-country">Canada</span>
-        <span class="sb-stat">Sherbrooke, QC leads with <strong>297 sightings per million</strong>. The highest rate of any city in this study.</span>
+        <span class="sb-action">Tap to see Canada rankings &#8594;</span>
       </span>
       <span class="sb-arrow">&#8594;</span>
     </button>
@@ -249,7 +234,7 @@
       <span class="sb-flag">&#127482;&#127480;</span>
       <span class="sb-text">
         <span class="sb-country">United States</span>
-        <span class="sb-stat">Vermont leads with <strong>10.89 abduction-flagged reports per million</strong> residents.</span>
+        <span class="sb-action">Tap to see US rankings &#8594;</span>
       </span>
       <span class="sb-arrow">&#8594;</span>
     </button>
@@ -257,7 +242,7 @@
       <span class="sb-flag">&#127468;&#127463;</span>
       <span class="sb-text">
         <span class="sb-country">United Kingdom</span>
-        <span class="sb-stat">Cambridge leads with <strong>153 sightings per million</strong>, 14 times higher than London.</span>
+        <span class="sb-action">Tap to see UK rankings &#8594;</span>
       </span>
       <span class="sb-arrow">&#8594;</span>
     </button>
@@ -267,7 +252,6 @@
 
 <!-- ===== CANADA ===== -->
 <div class="country-section" id="section-canada">
-
 <div class="switch-bar">
   <span>Switch country:</span>
   <button onclick="showCountry('canada')" class="active-country">&#127464;&#127462; Canada</button>
@@ -275,116 +259,86 @@
   <button onclick="showCountry('uk')">&#127468;&#127463; United Kingdom</button>
   <button onclick="showSelector()" style="margin-left:auto;color:var(--muted)">&#8592; Back</button>
 </div>
-
 <div class="country-banner" id="canada">
   <span class="cb-flag">&#127464;&#127462;</span>
   <span class="cb-name">Canada</span>
   <span class="cb-tag">13 cities ranked</span>
 </div>
-
 <h2>Canada Has the Highest Abduction Odds of Any Country in This Study</h2>
-
 <p>We ranked 13 Canadian cities using the Canadian UFO Survey, which records reported sightings each year across the country.</p>
 <p>The survey logged 4,311 sightings between 2020 and 2024. It does not flag individual reports for abduction, so total sightings per person is the closest available measure.</p>
 <p>Every one of the 13 ranked cities would place inside the UK top three. The gap between Sherbrooke (297 per million) and Winnipeg (57 per million) is wider than the entire US ranking from first to last.</p>
-
-<div class="findings-grid" id="findings">
-  <div class="finding-card">
-    <div class="fc-left"><span class="fc-flag">&#127464;&#127462;</span><span class="fc-country">Canada</span></div>
-    <div class="fc-divider"></div>
-    <div class="fc-right">
-      <div class="fc-label">Sherbrooke, QC leads the entire study. The highest sighting rate of any city across all three countries.</div>
-      <div class="fc-sub"><strong>1-in-3,365</strong> chance over 5 years &middot; Toronto has 275 raw sightings but ranks 9th</div>
-    </div>
-  </div>
-</div>
-
+<h2 id="findings">Key Findings</h2>
+<ul class="findings-list">
+  <li><strong>Sherbrooke leads the entire study across all three countries.</strong> 297 sightings per million residents. No US state and no UK city comes close.</li>
+  <li><strong>Every Canadian city in this ranking would place inside the UK top three.</strong> The gap between Canada and the UK is not close.</li>
+  <li><strong>Toronto has the most raw sightings of any Canadian city: 275.</strong> It still ranks 9th. Three million residents dilute a commanding lead into a mid-table rate.</li>
+  <li><strong>Ontario produces four of the top ten cities:</strong> London (3rd), Hamilton (5th), Toronto (9th), and Ottawa (12th). Same province, same five years, wildly different rates.</li>
+  <li><strong>Your lifetime chance of filing a sighting report in Sherbrooke is 0.48%.</strong> In Winnipeg, the lowest-ranked city, it is 0.09%.</li>
+</ul>
 <div class="embed-wrap">
   <iframe src="https://aharris-jpg.github.io/alien-abduction-2/chart-canada.html" height="620" title="Most likely places to be abducted in Canada"></iframe>
 </div>
-
 <h2 id="top10">The 10 Canadian Cities Where You Are Most Likely to Be Abducted</h2>
-
 <h3><span class="rank-badge r1">1</span> Sherbrooke, Quebec</h3>
 <p class="entry-details">Quebec &nbsp;·&nbsp; 52 sightings &nbsp;·&nbsp; 297 per million &nbsp;·&nbsp; Lifetime chance: 0.48%</p>
 <p>175,000 people in Quebec's Eastern Townships. The highest sighting rate of any city in this entire study. No US state and no UK city comes close.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Sherbrooke</span><span class="ob-odds">1 in 3,365 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">2</span> Vancouver, British Columbia</h3>
 <p class="entry-details">British Columbia &nbsp;·&nbsp; 179 sightings &nbsp;·&nbsp; 256 per million &nbsp;·&nbsp; Lifetime chance: 0.41%</p>
 <p>179 confirmed sightings, 700,000 residents. The most consistent result in the Canadian dataset, confirmed across two separate survey years.</p>
 <div class="embed-wrap"><iframe src="https://aharris-jpg.github.io/alien-abduction-2/pic1.html" height="410" title="Night sky Canada"></iframe></div>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Vancouver</span><span class="ob-odds">1 in 3,911 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">3</span> London, Ontario</h3>
 <p class="entry-details">Ontario &nbsp;·&nbsp; 89 sightings &nbsp;·&nbsp; 207 per million &nbsp;·&nbsp; Lifetime chance: 0.33%</p>
 <p>89 sightings, 430,000 residents. Ahead of Toronto, Montreal, and Calgary. Open farmland and lower light pollution than the Greater Toronto Area likely explain it.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in London</span><span class="ob-odds">1 in 4,831 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">4</span> Victoria, British Columbia</h3>
 <p class="entry-details">British Columbia &nbsp;·&nbsp; 63 sightings &nbsp;·&nbsp; 158 per million &nbsp;·&nbsp; Lifetime chance: 0.25%</p>
 <p>63 sightings, 400,000 residents. Open water, minimal light interference at the southern tip of Vancouver Island.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Victoria</span><span class="ob-odds">1 in 6,349 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">5</span> Hamilton, Ontario</h3>
 <p class="entry-details">Ontario &nbsp;·&nbsp; 79 sightings &nbsp;·&nbsp; 134 per million &nbsp;·&nbsp; Lifetime chance: 0.21%</p>
 <p>79 sightings, 590,000 residents. Open Lake Ontario views and escarpment geography push Hamilton into the top five despite its size.</p>
 <div class="embed-wrap"><iframe src="https://aharris-jpg.github.io/alien-abduction-2/pic2.html" height="410" title="Night sky Canada 2"></iframe></div>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Hamilton</span><span class="ob-odds">1 in 7,468 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">6</span> Halifax, Nova Scotia</h3>
 <p class="entry-details">Nova Scotia &nbsp;·&nbsp; 52 sightings &nbsp;·&nbsp; 116 per million &nbsp;·&nbsp; Lifetime chance: 0.18%</p>
 <p>52 sightings, 450,000 residents. Atlantic-facing city with open sea views and a long maritime sky-watching culture.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Halifax</span><span class="ob-odds">1 in 8,654 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">7</span> Edmonton, Alberta</h3>
 <p class="entry-details">Alberta &nbsp;·&nbsp; 114 sightings &nbsp;·&nbsp; 104 per million &nbsp;·&nbsp; Lifetime chance: 0.17%</p>
 <p>114 sightings, 1.1 million residents. Flat Prairie horizon and extended northern twilights, when UFO reports historically peak.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Edmonton</span><span class="ob-odds">1 in 9,649 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">8</span> Quebec City, Quebec</h3>
 <p class="entry-details">Quebec &nbsp;·&nbsp; 55 sightings &nbsp;·&nbsp; 96 per million &nbsp;·&nbsp; Lifetime chance: 0.15%</p>
 <p>55 sightings, 570,000 residents on the St. Lawrence. Second in Quebec behind Sherbrooke. The only province with three cities in the top eight.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Quebec City</span><span class="ob-odds">1 in 10,364 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">9</span> Toronto, Ontario</h3>
 <p class="entry-details">Ontario &nbsp;·&nbsp; 275 sightings &nbsp;·&nbsp; 89 per million &nbsp;·&nbsp; Lifetime chance: 0.14%</p>
 <p>275 sightings, more than any other Canadian city, and still only ninth. Three million residents compress a commanding raw lead into a mid-table per-person rate.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Toronto</span><span class="ob-odds">1 in 11,273 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">10</span> Calgary, Alberta</h3>
 <p class="entry-details">Alberta &nbsp;·&nbsp; 115 sightings &nbsp;·&nbsp; 82 per million &nbsp;·&nbsp; Lifetime chance: 0.13%</p>
 <p>115 sightings, 1.4 million residents. One more raw sighting than Edmonton but a larger population drops it one place. Rockies to the west, open Prairie to the east.</p>
 <div class="embed-wrap"><iframe src="https://aharris-jpg.github.io/alien-abduction-2/pic3.html" height="410" title="Alberta night sky"></iframe></div>
-
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Calgary</span><span class="ob-odds">1 in 12,174 over 5 years</span></div>
 <div class="expert-block">
   <blockquote>
-    <p>"Sherbrooke at 297 per million is the number that stops you. <strong>52 reports across 175,000 people over five years.</strong> The Eastern Townships have produced a cluster that stands entirely alone in the Canadian dataset."</p>
-    <p>"Ontario's spread tells the real story of what population does to a ranking. London 3rd. Hamilton 5th. Toronto 9th. Ottawa 12th. Same province, same survey, same five years. <strong>The only variable is how many people share the sky.</strong>"</p>
+    <p>"Sherbrooke at 297 per million is the number that stops you. 52 reports across 175,000 people over five years. The Eastern Townships have produced a cluster that stands entirely alone in the Canadian dataset."</p>
+    <p>"Ontario's spread tells the real story of what population does to a ranking. London 3rd. Hamilton 5th. Toronto 9th. Ottawa 12th. Same province, same survey, same five years. The only variable is how many people share the sky."</p>
   </blockquote>
-  <span class="expert-attribution">Canada Sports Betting &nbsp;·&nbsp; UFO Analyst</span>
+  <span class="expert-attribution">Data Analyst, Canada Sports Betting</span>
 </div>
-
 <h2 id="methodology">How We Did This: Canada</h2>
 <div class="methodology-block">
   <p><strong>What we measured:</strong> The likelihood that any one resident of a Canadian city would file a UFO sighting report over the 2020 to 2024 period, expressed as a rate per million residents, a 1-in-X five-year odds figure, and a lifetime chance percentage over 80 years.</p>
@@ -392,7 +346,6 @@
   <p><strong>Population:</strong> Statistics Canada subprovincial estimates July 2025, city proper figures.</p>
   <p><strong>Important note:</strong> The Canadian UFO Survey does not flag reports for abduction or missing time. Total sightings per capita is used as the closest available proxy. Annual totals: 2020: 1,243 | 2021: 722 | 2022: 768 | 2023: 570 | 2024: 1,008.</p>
 </div>
-
 <h2 id="sources">Sources</h2>
 <ul class="sources-list">
   <li>Full dataset: <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1Amg3Ao9oF9InkltVkCeHx737IKBq_S0sBBY8eBLa3noCh3Z_UJonqthnlhgbZw/pubhtml" target="_blank" rel="noopener">Canada Sports Betting Alien Abduction Odds Index 2026</a></li>
@@ -400,12 +353,10 @@
   <li>Canadian population: Statistics Canada Table 17-10-0149-01, subprovincial estimates July 2025</li>
   <li>Disclosure Day (2026): Universal Pictures / Amblin Entertainment, directed by Steven Spielberg</li>
 </ul>
-
 </div><!-- end canada -->
 
 <!-- ===== UNITED STATES ===== -->
 <div class="country-section" id="section-us">
-
 <div class="switch-bar">
   <span>Switch country:</span>
   <button onclick="showCountry('canada')">&#127464;&#127462; Canada</button>
@@ -413,120 +364,89 @@
   <button onclick="showCountry('uk')">&#127468;&#127463; United Kingdom</button>
   <button onclick="showSelector()" style="margin-left:auto;color:var(--muted)">&#8592; Back</button>
 </div>
-
 <div class="country-banner" id="us">
   <span class="cb-flag">&#127482;&#127480;</span>
   <span class="cb-name">United States</span>
   <span class="cb-tag">50 states ranked</span>
 </div>
-
 <h2>Vermont Leads the US. Oregon Has the Numbers to Back It Up.</h2>
-
 <p>We ranked all 50 US states using the National UFO Reporting Center (NUFORC), a national database that logs civilian UFO reports.</p>
-<p>NUFORC flags individual reports as "Possible Abduction" or "Missing Time". We call these abduction-flagged reports — filed by people who believed they experienced direct contact or unexplained missing time.</p>
+<p>NUFORC flags individual reports as "Possible Abduction" or "Missing Time". We call these abduction-flagged reports, filed by people who believed they experienced direct contact or unexplained missing time.</p>
 <p>Of 18,561 US reports filed between 2020 and 2024, <strong>609 were abduction-flagged</strong>. Spread across 49 states. South Dakota: zero. Louisiana: one.</p>
-
-<div class="findings-grid" id="findings">
-  <div class="finding-card">
-    <div class="fc-left"><span class="fc-flag">&#127482;&#127480;</span><span class="fc-country">United States</span></div>
-    <div class="fc-divider"></div>
-    <div class="fc-right">
-      <div class="fc-label">Vermont leads the US for abduction-flagged reports per million residents.</div>
-      <div class="fc-sub">Oregon leads with <strong>28 confirmed reports</strong> &middot; California has 61 reports but ranks 32nd</div>
-    </div>
-  </div>
-</div>
-
+<h2 id="findings">Key Findings</h2>
+<ul class="findings-list">
+  <li><strong>Vermont leads the US at 10.89 abduction-flagged reports per million residents.</strong> That is nearly double Oregon in second place.</li>
+  <li><strong>609 of 18,561 US reports filed between 2020 and 2024 were abduction-flagged.</strong> Spread across 49 states. South Dakota had zero. Louisiana had one.</li>
+  <li><strong>Oregon leads on raw abduction-flagged reports with 28</strong> but ranks second because Vermont's smaller population produces a higher per-person rate.</li>
+  <li><strong>Three of the top six states are in the Pacific Northwest:</strong> Oregon (2nd), Washington (4th), and Alaska (6th). The observational conditions there are structurally different.</li>
+  <li><strong>California has the most raw abduction-flagged reports of any state: 61.</strong> It ranks 32nd. 39 million residents absorb everything.</li>
+</ul>
 <div class="embed-wrap">
   <iframe src="https://aharris-jpg.github.io/alien-abduction-2/heatmap-us.html" height="560" title="US abduction odds heatmap"></iframe>
 </div>
-
 <h2 id="top10">The 10 US States Where You Are Most Likely to Be Abducted</h2>
-
 <h3><span class="rank-badge r1">1</span> Vermont</h3>
 <p class="entry-details">New England &nbsp;·&nbsp; 7 abduction-flagged reports &nbsp;·&nbsp; 10.89 per million &nbsp;·&nbsp; Lifetime chance: 0.0174%</p>
 <p>7 abduction-flagged reports out of 91 total sightings. 642,000 residents. The rate is nearly double Oregon in second.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Vermont</span><span class="ob-odds">1 in 91,829 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">2</span> Oregon</h3>
 <p class="entry-details">Pacific Northwest &nbsp;·&nbsp; 28 abduction-flagged reports &nbsp;·&nbsp; 6.54 per million &nbsp;·&nbsp; Lifetime chance: 0.0105%</p>
 <p>28 abduction-flagged reports out of 551 total sightings. 4.28 million residents. Oregon appears at the top of every time window in the NUFORC database.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Oregon</span><span class="ob-odds">1 in 152,923 over 5 years</span></div>
 <div class="embed-wrap"><iframe src="https://aharris-jpg.github.io/alien-abduction-2/pic4.html" height="410" title="Pacific Northwest night sky"></iframe></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">3</span> New Hampshire</h3>
 <p class="entry-details">New England &nbsp;·&nbsp; 7 abduction-flagged reports &nbsp;·&nbsp; 4.92 per million &nbsp;·&nbsp; Lifetime chance: 0.0079%</p>
 <p>7 abduction-flagged reports out of 198 total sightings. 1.42 million residents. Home of the 1961 Betty and Barney Hill case, the most documented abduction in US history.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in New Hampshire</span><span class="ob-odds">1 in 203,167 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">4</span> Washington</h3>
 <p class="entry-details">Pacific Northwest &nbsp;·&nbsp; 37 abduction-flagged reports &nbsp;·&nbsp; 4.58 per million &nbsp;·&nbsp; Lifetime chance: 0.0073%</p>
 <p>37 abduction-flagged reports out of 976 total sightings. 8.07 million residents. Adjacent to the Hanford nuclear site and Joint Base Lewis-McChord, both historically associated with elevated UFO reports.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Washington</span><span class="ob-odds">1 in 218,218 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">5</span> West Virginia</h3>
 <p class="entry-details">Appalachian South &nbsp;·&nbsp; 8 abduction-flagged reports &nbsp;·&nbsp; 4.53 per million &nbsp;·&nbsp; Lifetime chance: 0.0073%</p>
 <p>8 abduction-flagged reports out of 123 total sightings. 1.76 million residents. One of the lowest population densities east of the Mississippi, and home to the 1966 Mothman sightings around Point Pleasant.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in West Virginia</span><span class="ob-odds">1 in 220,612 over 5 years</span></div>
 <div class="embed-wrap"><iframe src="https://aharris-jpg.github.io/alien-abduction-2/pic5.html" height="410" title="Appalachian night sky"></iframe></div>
 <hr class="entry-divider">
-
 <div class="embed-wrap">
   <iframe src="https://aharris-jpg.github.io/alien-abduction-2/chart-us.html" height="660" title="Most likely places to be abducted in the US"></iframe>
 </div>
-
 <h3><span class="rank-badge">6</span> Alaska</h3>
 <p class="entry-details">Pacific / Arctic &nbsp;·&nbsp; 3 abduction-flagged reports &nbsp;·&nbsp; 4.07 per million &nbsp;·&nbsp; Lifetime chance: 0.0065%</p>
 <p>3 abduction-flagged reports out of 54 total sightings. 733,000 residents. Aurora activity, satellite passes, and sub-orbital test flights are all routinely misidentified here.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Alaska</span><span class="ob-odds">1 in 246,001 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">7</span> Iowa</h3>
 <p class="entry-details">Midwest &nbsp;·&nbsp; 12 abduction-flagged reports &nbsp;·&nbsp; 3.70 per million &nbsp;·&nbsp; Lifetime chance: 0.0059%</p>
 <p>12 abduction-flagged reports out of 162 total sightings. 3.25 million residents. Flat farmland, unobstructed horizons in every direction.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Iowa</span><span class="ob-odds">1 in 270,527 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">8</span> Rhode Island</h3>
 <p class="entry-details">New England &nbsp;·&nbsp; 4 abduction-flagged reports &nbsp;·&nbsp; 3.58 per million &nbsp;·&nbsp; Lifetime chance: 0.0057%</p>
 <p>4 abduction-flagged reports out of 65 total sightings. 1.12 million residents. The third New England state in the top eight, alongside Vermont and New Hampshire.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Rhode Island</span><span class="ob-odds">1 in 279,657 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">9</span> Colorado</h3>
 <p class="entry-details">Mountain West &nbsp;·&nbsp; 21 abduction-flagged reports &nbsp;·&nbsp; 3.48 per million &nbsp;·&nbsp; Lifetime chance: 0.0056%</p>
 <p>21 abduction-flagged reports out of 597 total sightings. 6.04 million residents. The San Luis Valley in southern Colorado is one of the most studied UFO cluster zones in the country.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Colorado</span><span class="ob-odds">1 in 287,458 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">10</span> Montana</h3>
 <p class="entry-details">Mountain West &nbsp;·&nbsp; 4 abduction-flagged reports &nbsp;·&nbsp; 3.47 per million &nbsp;·&nbsp; Lifetime chance: 0.0056%</p>
 <p>4 abduction-flagged reports out of 112 total sightings. 1.15 million residents. Some of the lowest light pollution readings anywhere in the continental US east of the Cascades.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Montana</span><span class="ob-odds">1 in 287,958 over 5 years</span></div>
 <div class="embed-wrap"><iframe src="https://aharris-jpg.github.io/alien-abduction-2/pic6.html" height="410" title="Montana night sky"></iframe></div>
-
 <div class="expert-block">
   <blockquote>
-    <p>"Oregon and Vermont lead the US. <strong>Oregon has 28 abduction-flagged reports across 4.28 million residents</strong>, Vermont 7 across 642,000. Both point to the same pattern: open skies, low light pollution, high reporting rates."</p>
-    <p>"Three Pacific Northwest states in the top six is not random. Oregon, Washington, and Alaska all share a coastline, high desert, and a community that has been reporting to NUFORC for decades. <strong>The observational conditions are structurally different there.</strong>"</p>
+    <p>"Oregon and Vermont lead the US. Oregon has 28 abduction-flagged reports across 4.28 million residents, Vermont 7 across 642,000. Both point to the same pattern: open skies, low light pollution, high reporting rates."</p>
+    <p>"Three Pacific Northwest states in the top six is not random. Oregon, Washington, and Alaska all share a coastline, high desert, and a community that has been reporting to NUFORC for decades. The observational conditions are structurally different there."</p>
   </blockquote>
-  <span class="expert-attribution">Canada Sports Betting &nbsp;·&nbsp; UFO Analyst</span>
+  <span class="expert-attribution">Data Analyst, Canada Sports Betting</span>
 </div>
-
 <h2 id="methodology">How We Did This: United States</h2>
 <div class="methodology-block">
   <p><strong>What we measured:</strong> The likelihood that any one resident of a US state would file an abduction-flagged report over the 2020 to 2024 period, expressed as a rate per million residents, a 1-in-X five-year odds figure, and a lifetime chance percentage over 80 years.</p>
@@ -534,7 +454,6 @@
   <p><strong>Population:</strong> US Census Bureau Vintage 2025 state estimates.</p>
   <p><strong>Important note:</strong> Rankings measure the per-person rate, not total volume. California (#32) has the most raw CE reports (61) but 39 million residents lower its individual rate significantly.</p>
 </div>
-
 <h2 id="sources">Sources</h2>
 <ul class="sources-list">
   <li>Full dataset: <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1Amg3Ao9oF9InkltVkCeHx737IKBq_S0sBBY8eBLa3noCh3Z_UJonqthnlhgbZw/pubhtml" target="_blank" rel="noopener">Canada Sports Betting Alien Abduction Odds Index 2026</a></li>
@@ -542,12 +461,10 @@
   <li>US population: US Census Bureau Vintage 2025 state estimates (census.gov/programs-surveys/popest)</li>
   <li>Disclosure Day (2026): Universal Pictures / Amblin Entertainment, directed by Steven Spielberg</li>
 </ul>
-
 </div><!-- end us -->
 
 <!-- ===== UK ===== -->
 <div class="country-section" id="section-uk">
-
 <div class="switch-bar">
   <span>Switch country:</span>
   <button onclick="showCountry('canada')">&#127464;&#127462; Canada</button>
@@ -555,79 +472,59 @@
   <button onclick="showCountry('uk')" class="active-country">&#127468;&#127463; United Kingdom</button>
   <button onclick="showSelector()" style="margin-left:auto;color:var(--muted)">&#8592; Back</button>
 </div>
-
 <div class="country-banner" id="uk">
   <span class="cb-flag">&#127468;&#127463;</span>
   <span class="cb-name">United Kingdom</span>
   <span class="cb-tag">25 cities ranked</span>
 </div>
-
 <h2>Cambridge Leads Britain. London Finishes Last.</h2>
-
 <p>We ranked 25 UK cities using UFO Identified, which collects sighting reports through Freedom of Information (FOI) requests to police forces across England, Scotland, Wales, and Northern Ireland, plus social media monitoring.</p>
 <p>2020 to 2023 figures are confirmed. 2024 is estimated based on the previous four-year average.</p>
 <p>Cambridge: 153 sightings per million. London: 11. The gap is the story.</p>
-
-<div class="findings-grid" id="findings">
-  <div class="finding-card">
-    <div class="fc-left"><span class="fc-flag">&#127468;&#127463;</span><span class="fc-country">United Kingdom</span></div>
-    <div class="fc-divider"></div>
-    <div class="fc-right">
-      <div class="fc-label">Cambridge leads Britain at 153 sightings per million. Fourteen times higher than London.</div>
-      <div class="fc-sub">Top 4 UK cities within <strong>12 per million</strong> of each other &middot; London ranks last of 25</div>
-    </div>
-  </div>
-</div>
-
+<h2 id="findings">Key Findings</h2>
+<ul class="findings-list">
+  <li><strong>Cambridge leads Britain at 153 sightings per million.</strong> That is 14 times higher than London, which finishes last of all 25 UK cities.</li>
+  <li><strong>The top four UK cities are separated by just 12 sightings per million.</strong> Cambridge, Brighton, Middlesbrough, and Manchester are effectively in a statistical tie.</li>
+  <li><strong>Manchester has the most raw sightings of any UK city: 78.</strong> It still ranks 4th. Over half a million residents dilute its lead.</li>
+  <li><strong>London finishing last is a mathematical certainty.</strong> Nearly 9 million residents absorb any volume of sightings. The same dynamic plays out in Toronto and California.</li>
+  <li><strong>Every UK city in this ranking sits below the lowest-ranked Canadian city.</strong> Canada produces sighting rates that the UK cannot match at any population scale.</li>
+</ul>
 <div class="embed-wrap">
   <iframe src="https://aharris-jpg.github.io/alien-abduction-2/chart-uk.html" height="660" title="Most likely places to be abducted in the UK"></iframe>
 </div>
-
 <h2 id="top5">The 5 UK Cities Where You Are Most Likely to Be Abducted</h2>
-
 <h3><span class="rank-badge r1">1</span> Cambridge</h3>
 <p class="entry-details">East of England &nbsp;·&nbsp; 19 estimated sightings &nbsp;·&nbsp; 153 per million &nbsp;·&nbsp; Lifetime chance: 0.25%</p>
 <p>19 estimated sightings, 124,000 residents. Flat Fenland geography gives unobstructed sky views across eastern England. The university research culture likely means unusual things get documented.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Cambridge</span><span class="ob-odds">1 in 6,526 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">2</span> Brighton</h3>
 <p class="entry-details">South East &nbsp;·&nbsp; 40 estimated sightings &nbsp;·&nbsp; 144 per million &nbsp;·&nbsp; Lifetime chance: 0.23%</p>
 <p>40 estimated sightings, 277,000 residents. Faces the English Channel. One of the most active UFO reporting communities in Britain.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Brighton</span><span class="ob-odds">1 in 6,930 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">3</span> Middlesbrough</h3>
 <p class="entry-details">North East &nbsp;·&nbsp; 21 estimated sightings &nbsp;·&nbsp; 142 per million &nbsp;·&nbsp; Lifetime chance: 0.23%</p>
 <p>21 estimated sightings, 148,000 residents. Mouth of the River Tees. Teesside Airport and active industrial airspace means people here notice what is overhead.</p>
 <div class="embed-wrap"><iframe src="https://aharris-jpg.github.io/alien-abduction-2/pic7.html" height="410" title="UK night sky"></iframe></div>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Middlesbrough</span><span class="ob-odds">1 in 7,058 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">4</span> Manchester</h3>
 <p class="entry-details">North West &nbsp;·&nbsp; 78 estimated sightings &nbsp;·&nbsp; 141 per million &nbsp;·&nbsp; Lifetime chance: 0.23%</p>
 <p>78 estimated sightings, the most of any UK city, and still only fourth. Brighton, Middlesbrough, and Manchester are effectively in a three-way tie.</p>
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Manchester</span><span class="ob-odds">1 in 7,093 over 5 years</span></div>
 <hr class="entry-divider">
-
 <h3><span class="rank-badge">5</span> Southampton</h3>
 <p class="entry-details">South East &nbsp;·&nbsp; 36 estimated sightings &nbsp;·&nbsp; 133 per million &nbsp;·&nbsp; Lifetime chance: 0.21%</p>
 <p>36 estimated sightings, 270,000 residents. Sits beneath one of the busiest aviation corridors in Western Europe. Open sea to the south.</p>
-
-
 <div class="odds-box"><span class="ob-label">Your 5-year odds in Southampton</span><span class="ob-odds">1 in 7,494 over 5 years</span></div>
 <div class="expert-block">
   <blockquote>
-    <p>"Cambridge, Brighton, Middlesbrough, Manchester: <strong>12 per million separates first from fourth.</strong> Any one of those cities could lead this table with a handful of additional reports."</p>
-    <p>"London at 25th of 25 is a mathematical certainty. Nearly 9 million residents absorb any volume of sightings. <strong>The same dynamic plays out in Toronto and California.</strong> The biggest city always finishes near the bottom of a per-person table."</p>
+    <p>"Cambridge, Brighton, Middlesbrough, Manchester: 12 per million separates first from fourth. Any one of those cities could lead this table with a handful of additional reports."</p>
+    <p>"London at 25th of 25 is a mathematical certainty. Nearly 9 million residents absorb any volume of sightings. The same dynamic plays out in Toronto and California. The biggest city always finishes near the bottom of a per-person table."</p>
   </blockquote>
-  <span class="expert-attribution">Canada Sports Betting &nbsp;·&nbsp; UFO Analyst</span>
+  <span class="expert-attribution">Data Analyst, Canada Sports Betting</span>
 </div>
-
 <h2 id="methodology">How We Did This: United Kingdom</h2>
 <div class="methodology-block">
   <p><strong>What we measured:</strong> The likelihood that any one resident of a UK city would file a UFO sighting report over the 2020 to 2024 period, expressed as a rate per million residents, a 1-in-X five-year odds figure, and a lifetime chance percentage over 80 years.</p>
@@ -635,7 +532,6 @@
   <p><strong>Population:</strong> Office for National Statistics (ONS) mid-2023 estimates, published October 2024.</p>
   <p><strong>Important note:</strong> 2024 sighting totals are estimated at +25% based on the 2020-2023 annual average. City map clusters may include sightings from surrounding areas.</p>
 </div>
-
 <h2 id="sources">Sources</h2>
 <ul class="sources-list">
   <li>Full dataset: <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1Amg3Ao9oF9InkltVkCeHx737IKBq_S0sBBY8eBLa3noCh3Z_UJonqthnlhgbZw/pubhtml" target="_blank" rel="noopener">Canada Sports Betting Alien Abduction Odds Index 2026</a></li>
@@ -645,7 +541,6 @@
   <li>UK population: ONS mid-2023 estimates, October 2024 (ons.gov.uk)</li>
   <li>Disclosure Day (2026): Universal Pictures / Amblin Entertainment, directed by Steven Spielberg</li>
 </ul>
-
 </div><!-- end uk -->
 
 </div><!-- alien-body -->
@@ -658,8 +553,6 @@ function showCountry(c){
     document.getElementById("section-"+x).classList.remove("active");
   });
   document.getElementById("section-"+c).classList.add("active");
-  // Update nav links
-  var map={canada:"Canada",us:"United States",uk:"United Kingdom"};
   document.getElementById("nav-findings").style.display="";
   document.getElementById("nav-top10").style.display="";
   document.getElementById("nav-method").style.display="";
@@ -680,7 +573,6 @@ function showSelector(){
   document.getElementById("nav-method").style.display="none";
   window.scrollTo({top:0,behavior:"smooth"});
 }
-// Scroll active nav
 var sections=["findings","top10","methodology"];
 function upd(){
   var y=window.scrollY+80;
